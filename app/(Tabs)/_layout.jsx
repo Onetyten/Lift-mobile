@@ -5,6 +5,8 @@ import HomeIcon from './icons/home.png'
 import ProfileIcon from './icons/profile.png'
 import BookmarkIcon from './icons/bookmark.png'
 import CreateIcon from './icons/plus.png'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faMugSaucer } from '@fortawesome/free-solid-svg-icons/faMugSaucer'
 
 
 
@@ -12,6 +14,7 @@ const TabIcon = ({icon,color,name,focused}) => {
   return (
     <View className='items-center justify-center gap-2'>
       <Image source={icon} resizeMode='contain' tintColor={color}  className='w-8 h-8'/>
+
 
     </View>
   )
@@ -23,6 +26,7 @@ const TabLayout = () => {
     <>
       <Tabs screenOptions={{
         tabBarShowLabel:false,
+        headerShown:false,
         tabBarActiveTintColor:'#FF934F',
         tabBarInactiveTintColor:'#373637',
         tabBarStyle:{
