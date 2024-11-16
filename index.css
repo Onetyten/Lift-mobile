@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Funnel;
+  src: url(./assets/fonts/Funnel_Display/FunnelDisplay-VariableFont_wght.ttf);
+  /* color: #525350; */
+}
+@font-face {
+  font-family: QuickSand;
+  src: url(./assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+  /* color: #525350; */
+}
