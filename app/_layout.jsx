@@ -4,6 +4,7 @@ import { Text, TouchableHighlight, TouchableOpacity, View } from "react-native";
 import { useEffect } from "react";
 import { SplashScreen } from "expo-router";
 import { useFonts } from "expo-font";
+import {AppProvider} from './Context'
 
 SplashScreen.preventAutoHideAsync();
 
@@ -45,10 +46,13 @@ export default function RootLayout() {
 
 
   return(
-    <Stack>
-      <Stack.Screen name="index" options={{headerShown:false}} />
-      <Stack.Screen name="(Tabs)" options={{headerShown:false}} />
+      <AppProvider>
+        <Stack>
+          <Stack.Screen name="index" options={{headerShown:false}} />
+          <Stack.Screen name="(Tabs)" options={{headerShown:false}} />
+        </Stack>
+      </AppProvider>
 
-    </Stack>
+
   );
 }

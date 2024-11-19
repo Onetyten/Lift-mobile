@@ -1,5 +1,6 @@
-import { View, Text,SafeAreaView, TextInput,Image } from 'react-native'
+import { View, Text,SafeAreaView, TextInput,Image, ScrollView } from 'react-native'
 import React from 'react'
+import Categories from '../HomeComponent/Categories'
 import ProfileImg from './icons/Headshot.jpg'
 import HeaderCar from '../../assets/images/sports-car-header.png'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -10,7 +11,8 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight'
 
 const Home = () => {
   return (
-    <SafeAreaView className='bg-dark-200 flex-1 items-center font-QuickSand
+   <ScrollView className='bg-dark-200 flex-1'>
+     <SafeAreaView className=' flex-1 items-center font-QuickSand
     
     '>
       <View className='flex-row justify-between items-center px-4 py-6 w-full'>
@@ -45,8 +47,23 @@ const Home = () => {
         <FontAwesomeIcon icon={faArrowRight} size={20} color='#ff934f'/>
       </View>
 
+      <Categories/>
+      <View className='bg-primary w-full my-96' style={{height:1,marginVertical:40}} />
+      <View className='flex flex-row justify-between w-[90%]'>
+        <Text className='text-primary text-xl font-QuickSand'>
+        Trending Cars
+        </Text>
+        <FontAwesomeIcon icon={faArrowRight} size={20} color='#ff934f'/>
+      </View>
+      
+      <Categories/>
+
+      
+
+
         
     </SafeAreaView>
+   </ScrollView>
   )
 }
 
