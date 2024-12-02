@@ -36,7 +36,7 @@ const AppProvider = ({children})=>{
 )
         },
         {
-            name: 'Pickup Trucks',
+            name: 'Pickup Tr',
             path: require('../assets/images/Car categories/Pickup.jpeg'
 )
         },
@@ -70,9 +70,42 @@ const AppProvider = ({children})=>{
         
 
     ])
+    const [bestSelling,setBestSelling]= useState([
+        {
+            name: 'Nissan Rogue',
+            path: require('../assets/images/Bestselling/NissanRogue.jpg'),
+            rentalPricePerDay: 14000
+        },
+        {
+            name: 'Chevrolet Silverado',
+            path: require('../assets/images/Bestselling/Chevrolet.webp'),
+            rentalPricePerDay: 15000
+        },
+        {
+            name: 'Toyota RAV4',
+            path: require('../assets/images/Bestselling/Rav4.jpg'),
+            rentalPricePerDay: 12000
+        },
+        {
+            name: 'Tesla Model Y',
+            path: require('../assets/images/Bestselling/Tesla.webp'),
+            rentalPricePerDay: 25000
+        },
+        {
+            name: 'Honda CR-V',
+            path: require('../assets/images/Bestselling/Honda.jpg'),
+            rentalPricePerDay: 13000
+        },
+
+        
+        
+        
+        
+
+    ])
 
     return(
-        <AppContext.Provider value={{ carCategories, setCarCategories }}>
+        <AppContext.Provider value={{ carCategories, setCarCategories,bestSelling,setBestSelling }}>
             {children}
         </AppContext.Provider>
     )

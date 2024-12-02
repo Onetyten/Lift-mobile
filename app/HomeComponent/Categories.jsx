@@ -8,7 +8,7 @@ const Categories = () => {
     const {carCategories} = useContext(AppContext)
  
   return (
-        <ScrollView className='w-full h-48 mt-7 flex-row' horizontal>
+        <ScrollView className='w-full h-48 mt-7 ml-14 flex-row' horizontal>
             {carCategories.map((item)=>{
                 return(
                     <CategoriesCards name = {item.name} path = {item.path}/>
