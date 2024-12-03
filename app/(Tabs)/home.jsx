@@ -13,7 +13,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight'
 const Home = () => {
   return (
    <ScrollView className='bg-dark-200 flex-1'>
-     <SafeAreaView className=' flex-1 items-center font-QuickSand
+     <SafeAreaView className=' flex-1 items-center pt-6 font-QuickSand
     
     '>
       <View className='flex-row justify-between items-center px-4 py-6 w-full'>
@@ -36,13 +36,13 @@ const Home = () => {
 
       {/* tagline    */}
       <View className='h-48 w-[90%] bg-primary rounded-3xl mt-7 overflow-hidden'>
-        <Text className='text-lg p-4 w-4/6 font-Funnel text-dark-200' >Drive It Your Way: Rent, Share, Explore ...</Text>
+        <Text className='text-lg p-4 w-4/6 font-QuickSand text-dark-200' >Drive It Your Way: Rent, Share, Explore ...</Text>
         <View className='flex justify-end flex-row w-full'>
          <Image source={HeaderCar} className='w-5/6 -top-20 ' resizeMode='contain'/>
         </View>
       </View>
       <View className='mt-7 flex flex-row justify-between w-[90%]'>
-        <Text className='text-primary text-xl font-QuickSand'>
+        <Text className='text-primary text-xl font-Handlee'>
           Categories
         </Text>
         <FontAwesomeIcon icon={faArrowRight} size={20} color='#ff934f'/>
@@ -51,7 +51,7 @@ const Home = () => {
       <Categories/>
       <View className='bg-primary w-full my-14' style={{height:1,marginVertical:40}} />
       <View className='flex flex-row justify-between w-[90%]'>
-        <Text className='text-primary text-xl font-QuickSand'>
+        <Text className='text-primary text-xl font-Handlee'>
         Trending Cars 
         </Text>
         <FontAwesomeIcon icon={faArrowRight} size={20} color='#ff934f'/>

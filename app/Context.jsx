@@ -5,6 +5,12 @@ const AppContext = createContext()
 
 const AppProvider = ({children})=>{
 
+    const [form,setForm] = useState({
+        userName : '',
+        email:'',
+        password:'',
+    })
+
     const [carCategories,setCarCategories]= useState([
         {
             name: 'Economy',
@@ -36,7 +42,7 @@ const AppProvider = ({children})=>{
 )
         },
         {
-            name: 'Pickup Tr',
+            name: 'Pickup Trucks',
             path: require('../assets/images/Car categories/Pickup.jpeg'
 )
         },
@@ -105,7 +111,7 @@ const AppProvider = ({children})=>{
     ])
 
     return(
-        <AppContext.Provider value={{ carCategories, setCarCategories,bestSelling,setBestSelling }}>
+        <AppContext.Provider value={{ carCategories, setCarCategories,bestSelling,setBestSelling,form,setForm }}>
             {children}
         </AppContext.Provider>
     )

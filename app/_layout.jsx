@@ -34,6 +34,17 @@ export default function RootLayout() {
     //roboto
     "Roboto" : require("../assets/fonts/Roboto/Roboto-Regular.ttf"),
     "Roboto-bold" : require("../assets/fonts/Roboto/Roboto-Black.ttf"),
+
+    "AnkhSanctuary" : require("../assets/fonts/ankh-sanctuary-font/AnkhSanctuary-PVK0B.ttf"),
+    "EduAU" : require("../assets/fonts/Edu_AU_VIC_WA_NT_Hand/EduAUVICWANTHand-VariableFont_wght.ttf"),
+    "logam" : require("../assets/fonts/logam-font/LogamRegular-8Mv2J.otf"),
+    "Annie" : require("../assets/fonts/Annie_Use_Your_Telescope/AnnieUseYourTelescope-Regular.ttf"),
+    "Handlee" : require("../assets/fonts/Handlee/Handlee-Regular.ttf"),
+
+
+
+
+
    
   })
 
@@ -50,6 +61,8 @@ export default function RootLayout() {
         <Stack>
           <Stack.Screen name="index" options={{headerShown:false}} />
           <Stack.Screen name="(Tabs)" options={{headerShown:false}} />
+          <Stack.Screen name="(Signup)" options={{headerShown:false}} />
+
         </Stack>
       </AppProvider>
 

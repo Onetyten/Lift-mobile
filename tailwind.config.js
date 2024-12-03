@@ -19,25 +19,14 @@ module.exports = {
       },
       fontFamily:{
         Funnel:["Funnel_Display","sans-serif"],
-        FunnelBold:["Funnel_Display-Bold","sans-serif"],
-        FunnelExtraBold:["Funnel_Display-ExtraBold","sans-serif"],
-        FunnelSemibold:["Funnel_Display-Semi-Bold","sans-serif"],
-        FunnelLight:["Funnel_Display-Light","sans-serif"],
-
-
-
-
-        QuickSand:["Quicksand","sans-serif"],
-        QuickSandBold:["Quicksand-bold","sans-serif"],
-        QuickSandLight:["Quicksand-light","sans-serif"],
-        QuickSandMedium:["Quicksand-medium","sans-serif"],
-        QuickSandRegular:["Quicksand-regular","sans-serif"], 
-        QuickSandSemibold:["Quicksand-semibold","sans-serif"], 
-
+        QuickSand:["Quicksand","sans-serif"], 
         Reddit:["Reddit","sans-serif"],
-
         Roboto:["Roboto","sans-serif"], 
-        RobotoBold:["Roboto-bold","sans-serif"], 
+        Handlee:["Handlee","sans-serif"],
+        Annie:["Annie","sans-serif"], 
+        EduAU:["EduAU","sans-serif"], 
+        logam:["logam","sans-serif"], 
+
 
         
 

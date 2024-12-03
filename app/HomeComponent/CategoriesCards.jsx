@@ -11,7 +11,7 @@ const CategoriesCards = (props) => {
             <View className=' bg-primary w-full h-full opacity-25 absolute'>
             </View>
         </ImageBackground>
-        <Text className='w-full text-center text-2xl text-primary'>{name}</Text>
+        <Text className='w-full text-center text-md font-QuickSand text-primary'>{name}</Text>
 
     </View>
 </TouchableOpacity>
