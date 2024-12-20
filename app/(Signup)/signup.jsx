@@ -11,26 +11,25 @@ import {createUser} from '../../lib/appwrite'
 const Signup = () => {
   const {form,setForm} = useContext(AppContext)
   const [isSubmitting,setIsSubmitting] = useState(false)
-  const submit = async ()=>{
+  const submit= async()=>{
     if (!form.userName || !form.email || !form.password){
-      Alert.alert('Error','Please fill in all the inputs')
+      console.log("not here")
+      Alert.alert("Invalid Information","Please fill in the required fields")
     }
-    setIsSubmitting(true)
-    try { 
-    const result = await createUser(form.email,form.password,form.userName);
-
-    router.replace('/(Tabs)/home')
+    else{
+      try {
+        const user = await createUser(form.userName,form.email,form.password)
+        console.log("User added successfully")
+        router.replace('/(Tabs)/home')
+        
+      } catch (error) {
+        Alert.alert("Error",error.message)
+      }
+    }
     
-    }
-
-    catch (error) {
-      Alert.alert(' Error',error.message)
-    }
-
-    finally{
-      setIsSubmitting(false)
-    }
+    
   }
+
 
   return (
     <SafeAreaView className='bg-dark-200 h-full w-full'>

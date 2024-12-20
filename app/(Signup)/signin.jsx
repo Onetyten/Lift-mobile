@@ -1,17 +1,36 @@
 import { View, Text, SafeAreaView, ScrollView } from 'react-native'
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import FormField from '../Components/FormField'
 import Button  from '../Components/Button'
 import { Link,Redirect,router } from 'expo-router'
 import { AppContext,AppProvider } from '../Context'
+import {Authenticate} from '../../lib/appwrite'
+
 
 
 const Signin = () => {
   const {form,setForm} = useContext(AppContext)
-  const submit = ()=>{
-    console.log('Hello world')
+  const [isSubmitting,setIsSubmitting] = useState(false)
+  const submit =async  ()=>{
+    console.log("pressed")
+    if (!form.email || !form.password){
+          console.log("not here")
+          Alert.alert("Invalid Information","Please fill in the required fields")
+        }
+    else{
+      try {
+        const user = await Authenticate(form.email,form.password)
+        console.log("User logged in")
+        router.replace('/(Tabs)/home')
+      } catch (error) {
+         Alert.alert("Error",error.message)
+      }
+    }
   }
+
+
+
   return (
     <SafeAreaView className='bg-dark-200 h-full w-full'>
       <ScrollView>
@@ -24,7 +43,7 @@ const Signin = () => {
               <FormField placeholdertext= 'Enter your password' title = 'Password'value ={form.password} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, password:e})} />
               <View className='w-full flex-row justify-center'>
                 <View className='mt-10 w-28'>
-                  <Button title ='Sign In' handlepress = {()=>{router.push('/(Tabs)/home')}}/>
+                  <Button title ='Sign In' handlepress = {submit}/>
                 
                 </View>
               </View>
