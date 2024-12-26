@@ -9,7 +9,7 @@ import {createUser} from '../../lib/appwrite'
 
 
 const Signup = () => {
-  const {form,setForm} = useContext(AppContext)
+  const {form,setForm,isLoggedIn,setIsLoggedIn} = useContext(AppContext)
   const [isSubmitting,setIsSubmitting] = useState(false)
   const submit= async()=>{
     if (!form.userName || !form.email || !form.password){
@@ -20,7 +20,9 @@ const Signup = () => {
       try {
         const user = await createUser(form.userName,form.email,form.password)
         console.log("User added successfully")
+        setIsLoggedIn(true)
         router.replace('/(Tabs)/home')
+        
         
       } catch (error) {
         Alert.alert("Error",error.message)

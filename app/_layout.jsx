@@ -62,6 +62,8 @@ export default function RootLayout() {
           <Stack.Screen name="index" options={{headerShown:false}} />
           <Stack.Screen name="(Tabs)" options={{headerShown:false}} />
           <Stack.Screen name="(Signup)" options={{headerShown:false}} />
+          <Stack.Screen name="CategoryTab" options={{headerShown:false}} />
+
 
         </Stack>
       </AppProvider>

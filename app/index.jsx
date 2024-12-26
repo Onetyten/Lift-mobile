@@ -1,6 +1,8 @@
 import { Link,Redirect,router } from "expo-router";
 import { Image, Text, TouchableHighlight, TouchableOpacity, View,SafeAreaView, ScrollView, ImageBackground} from "react-native";
 import Button from './Components/Button'
+import { AppContext,AppProvider } from './Context'
+import { useContext } from "react";
 
 
 
@@ -10,6 +12,7 @@ import Button from './Components/Button'
 
 
 export default function Index() {
+  const {isLoggedIn,setIsLoggedIn} = useContext(AppContext)
 
 
   return (
@@ -19,7 +22,7 @@ export default function Index() {
         <Text className="text-2xl text-primary text-center mt-16 font-Handlee">Ride, Share, Earn</Text>
         <ImageBackground source={require('../assets/images/Homepage car.png')} resizeMode="cover" className="w-full h-full justify-center items-center">
           <View className="top-10">
-            <Button title ='Continue with email' handlepress = {()=>{router.push('/(Signup)/signin')}}/> 
+            <Button title ='Continue with email' handlepress = {()=>{ isLoggedIn ? router.push('/(Tabs)/home') : router.push('/(Signup)/signin')}}/> 
           </View>
 
           

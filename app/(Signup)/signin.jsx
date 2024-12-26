@@ -1,26 +1,29 @@
-import { View, Text, SafeAreaView, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView,Alert } from 'react-native'
 import React, { useContext,useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import FormField from '../Components/FormField'
 import Button  from '../Components/Button'
 import { Link,Redirect,router } from 'expo-router'
 import { AppContext,AppProvider } from '../Context'
-import {Authenticate} from '../../lib/appwrite'
+import {Authenticate,getCurrentUser} from '../../lib/appwrite'
 
 
 
 const Signin = () => {
-  const {form,setForm} = useContext(AppContext)
+  const {form,setForm,isLoggedIn,setIsLoggedIn} = useContext(AppContext)
   const [isSubmitting,setIsSubmitting] = useState(false)
   const submit =async  ()=>{
-    console.log("pressed")
+    // console.log("pressed")
     if (!form.email || !form.password){
           console.log("not here")
           Alert.alert("Invalid Information","Please fill in the required fields")
         }
     else{
       try {
-        const user = await Authenticate(form.email,form.password)
+        const user = await Authenticate(form.email,form.password)  ;
+        setIsLoggedIn(true)
+        // const user = await getCurrentUser()  ;
+        
         console.log("User logged in")
         router.replace('/(Tabs)/home')
       } catch (error) {

@@ -50,13 +50,14 @@ const Home = () => {
 
       <Categories/>
       <View className='bg-primary w-full my-14' style={{height:1,marginVertical:40}} />
-      <View className='flex flex-row justify-between w-[90%]'>
-        <Text className='text-primary text-xl font-Handlee'>
+      <View className='flex flex-row justify-between w-[90%]' style={{marginBottom:5}}>
+        <Text className='text-primary text-xl font-Handlee' >
         Trending Cars 
         </Text>
         <FontAwesomeIcon icon={faArrowRight} size={20} color='#ff934f'/>
       </View>
       <Bestselling/>
+
       
     
 
