@@ -9,9 +9,9 @@ const Categories = () => {
  
   return (
         <ScrollView className='w-full h-48 mt-7 ml-14 flex-row' horizontal>
-            {carCategories.map((item)=>{
+            {carCategories.map((item,index)=>{
                 return(
-                    <CategoriesCards name = {item.name} path = {item.path}/>
+                    <CategoriesCards key = {index} name = {item.name} path = {item.path}/>
                 )
 
             })}

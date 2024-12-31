@@ -1,12 +1,16 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView,ScrollView } from 'react-native'
 import React from 'react'
+// import {  } from 'react-native-web'
 
 const CategoryTab = () => {
 
   return (
-    <View>
-      <Text>CategoryTab</Text>
-    </View>
+    <ScrollView className='bg-dark-200 flex-1'>
+      <SafeAreaView>
+        
+      </SafeAreaView>
+
+    </ScrollView>
   )
 }
 export default CategoryTab

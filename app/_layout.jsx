@@ -61,10 +61,10 @@ export default function RootLayout() {
         <Stack>
           <Stack.Screen name="index" options={{headerShown:false}} />
           <Stack.Screen name="(Tabs)" options={{headerShown:false}} />
+          <Stack.Screen name="(Pages)" options={{headerShown:false}} />
+          <Stack.Screen name="carDetails" options={{headerShown:false}} />
+          <Stack.Screen name="categoryTab" options={{headerShown:false}} />
           <Stack.Screen name="(Signup)" options={{headerShown:false}} />
-          <Stack.Screen name="CategoryTab" options={{headerShown:false}} />
-
-
         </Stack>
       </AppProvider>
 
