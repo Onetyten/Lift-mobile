@@ -15,7 +15,7 @@ const BestSelling = () => {
       keyExtractor={(item,index)=>index.toString()}
       renderItem={({item})=>{
         return(
-          <BestSellingCard name = {item.name} path = {item.path} price = {item.rentalPricePerDay} score ={item.reviewStore} category = {item.category}/>
+          <BestSellingCard name = {item.name} path = {item.path} price = {item.rentalPricePerDay} score ={item.reviewStore} category = {item.category} id = {item.id}/>
         )
       }}
       />

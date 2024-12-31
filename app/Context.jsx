@@ -9,6 +9,9 @@ const AppProvider = ({children})=>{
     const [isLoggedIn,setIsLoggedIn] = useState(true)
     const [user,setUser] = useState(null)
     const [isLoading,setIsLoading] = useState(true)
+    const [CurrentCategory,setCurrentCategory] = useState('SUV')
+    const [detailsIndex,setDetailsIndex] = useState(0)
+
 
     useEffect(()=>{
         const saveLogInStatus = async (params) => {
@@ -119,6 +122,30 @@ const AppProvider = ({children})=>{
     ])
     const [carListings,setCarListings]= useState([
         {
+            id:0,
+            name: 'Honda CR-V',
+            path: 'https://th.bing.com/th/id/OIF.KmWIq8D8D0kZ1Z2z5np7pA?w=282&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+            rentalPricePerDay: 13000,
+            category: 'Compact Cars',
+            state: 'Port Harcourt',
+            country: 'Nigeria',
+            manufactureYear: '2021',
+            trending: false,
+            description: 'The Honda CR-V is spacious, efficient, and perfect for all kinds of adventures.',
+            acceleration: '0-60 mph in 8.2 seconds',
+            engineSize: '1.5L Turbo 4-cylinder',
+            electric: false,
+            horsePower: '190 hp',
+            profileName: 'PH Adventures',
+            reviewScore: 4.7,
+            comments: [
+                'Spacious and great for road trips!',
+                'Handled well even on rough roads.',
+            ],
+            yearsOnApp: 3
+        },
+        {
+            id:1,
             name: "Nissan Rogue",
             path: "https://th.bing.com/th/id/OIF.Db7Cuz1YoJZ74lGFU52W4A?w=326&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7",
             rentalPricePerDay: 14000,
@@ -137,7 +164,8 @@ const AppProvider = ({children})=>{
             comments: ["Great car!", "Loved the ride"], 
             yearsSpent: 1            
         },
-        {
+        {   
+            id:2,
             name: "Toyota Camry",
             path: "https://th.bing.com/th/id/R.36b32737244f30c481071a2a2a6448b0?rik=fZMG%2beReZXNz4g&pid=ImgRaw&r=0",
             rentalPricePerDay: 12000,
@@ -156,7 +184,8 @@ const AppProvider = ({children})=>{
             comments: ["Very comfortable!", "Smooth ride"], 
             yearsSpent: 2              
         },
-        {
+        {   
+            id:3,
             name: "Tesla Model 3",
             path: "https://cdn.motor1.com/images/mgl/qpGBL/s1/tesla-model-3-gray-2.jpg",
             rentalPricePerDay: 25000,
@@ -176,6 +205,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3             
         },
         {
+            id:4,
             name: "Toyota Camry",
             path: "https://th.bing.com/th/id/OIP.QbIM5PClZZKpwmZttCKKSAHaE6?w=1600&h=1063&rs=1&pid=ImgDetMain",
             rentalPricePerDay: 12000,
@@ -194,7 +224,9 @@ const AppProvider = ({children})=>{
             comments: ["Great fuel efficiency", "Smooth ride"], 
             yearsSpent: 1            
         },
-        {
+        {   
+
+            id:5,
             name: "Honda Accord",
             path: "https://th.bing.com/th/id/OIP.q7nXtPQPhmvRcpdRl3qytwHaEK?rs=1&pid=ImgDetMain",
             rentalPricePerDay: 13000,
@@ -215,6 +247,7 @@ const AppProvider = ({children})=>{
         },
         
         {
+            id:6,
             name: 'Ford Explorer',
             path: 'https://th.bing.com/th/id/R.948083b9bd48a78dab85111387e1ff77?rik=k8plslpaNZ8QXw&riu=http%3a%2f%2fcdn.carbuzz.com%2fgallery-images%2f1600%2f712000%2f0%2f712094.jpg&ehk=LE1S8fqJBg1b%2fOZu5NCpnmx652%2bWXQVo%2f0dL8fQBsz8%3d&risl=&pid=ImgRaw&r=0',
             rentalPricePerDay: 18000,
@@ -234,6 +267,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:7,
             name: 'Chevrolet Malibu',
             path: 'https://th.bing.com/th/id/R.a2318780ca15231a9079c6c17a327355?rik=aQyTyypzdm7gZQ&riu=http%3a%2f%2fwww.automoblog.net%2fwp-content%2fuploads%2f2011%2f12%2f2013-Chevrolet-Malibu-Eco-070.jpg&ehk=kSwLpFp8wvN%2b3NtpQH%2bVGy5%2f186yxR1WTWl1F67e9Ac%3d&risl=&pid=ImgRaw&r=0',
             rentalPricePerDay: 11000,
@@ -252,7 +286,8 @@ const AppProvider = ({children})=>{
             comments: ['Stylish and efficient', 'Great fuel economy'],
             yearsSpent: 2
         },
-        {
+        {   
+            id:8,
             name: 'BMW X5',
             path: 'https://th.bing.com/th/id/R.a8eea639ecbbf86ebe877002931dece5?rik=fsYqO7vzy%2bgW0A&riu=http%3a%2f%2fwww.hdcarwallpapers.com%2fwalls%2f2015_bmw_x5_m-wide.jpg&ehk=gjmSxO00woacwrzIWcBxdtPR59cXVRa2ThgW2QoJlBY%3d&risl=&pid=ImgRaw&r=0',
             rentalPricePerDay: 25000,
@@ -272,6 +307,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:9,
             name: 'Mercedes-Benz C-Class',
             path: 'https://th.bing.com/th/id/R.938720b581bf50f9f2d694dbf149a0f2?rik=6oQe3FRdrFNbeQ&pid=ImgRaw&r=0',
             rentalPricePerDay: 22000,
@@ -291,6 +327,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:10,
             name: 'Audi Q5',
             path: 'https://th.bing.com/th/id/OIF.E6j3PMIarVRgdmfJosVcaA?rs=1&pid=ImgDetMain',
             rentalPricePerDay: 20000,
@@ -311,6 +348,7 @@ const AppProvider = ({children})=>{
         },
         
         {
+            id:11,
             name: 'Hyundai Tucson',
             path: 'https://www.thecarexpert.co.uk/wp-content/uploads/2023/07/Hyundai-Tucson-test-drive-front-action-1200x800.jpg',
             rentalPricePerDay: 15000,
@@ -330,6 +368,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:12,
             name: 'Kia Sportage',
             path: 'https://images.carexpert.com.au/resize/3000/-/app/uploads/2022/01/2022-Kia-Sportage-S-2.0D-AWD-HERO.jpg',
             rentalPricePerDay: 14000,
@@ -349,6 +388,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:13,
             name: 'Mazda CX-5',
             path: 'https://th.bing.com/th/id/OIP.Yn_ivv63RG7Sa41PbguOwAHaE8?rs=1&pid=ImgDetMain',
             rentalPricePerDay: 16000,
@@ -368,6 +408,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:14,
             name: 'Toyota RAV4',
             path: 'https://th.bing.com/th?id=OIF.DBDGFbYAWjMQ8u1%2bfCPJOw&rs=1&pid=ImgDetMain',
             rentalPricePerDay: 17000,
@@ -388,6 +429,7 @@ const AppProvider = ({children})=>{
         },
         
         {
+            id:15,
             name: 'Nissan Altima',
             path: 'https://th.bing.com/th/id/R.ed26ea58e0411af1f8728f9ecc1dd9a8?rik=3S9RhH3GvVD%2faQ&pid=ImgRaw&r=0',
             rentalPricePerDay: 13000,
@@ -407,6 +449,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:16,
             name: 'Jeep Grand Cherokee',
             path: 'https://th.bing.com/th/id/R.a2d46ade27847a72768bb783bc900080?rik=MsSedAZXh2dcDQ&riu=http%3a%2f%2f3.bp.blogspot.com%2f-GG8AUJMv6NU%2fTg5zbcXihXI%2fAAAAAAAAAfU%2f_ERPJurvaPU%2fs1600%2f96_jeep_grandcherokee_laredo_1.jpg&ehk=PHAsDRbGDGO9SQfmyrEriMS558cF%2bZkKp8gem7N%2f4%2fU%3d&risl=&pid=ImgRaw&r=0',
             rentalPricePerDay: 20000,
@@ -426,6 +469,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:17,
             name: 'Volkswagen Passat',
             path: 'https://th.bing.com/th/id/OIP.RbMrO29zYGsz-RisWsvepgHaFj?rs=1&pid=ImgDetMain',
             rentalPricePerDay: 12000,
@@ -444,7 +488,8 @@ const AppProvider = ({children})=>{
             comments: ['Stylish and comfortable', 'Great for city driving'],
             yearsSpent: 2
         },
-        {
+        {   
+            id:18,
             name: 'Subaru Outback',
             path: 'https://th.bing.com/th?id=OIF.wHp5jEdl%2f27vUDuygglCgw&rs=1&pid=ImgDetMain',
             rentalPricePerDay: 16000,
@@ -464,7 +509,8 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         
-        {
+        {   
+            id:19,
             name: 'Toyota RAV4',
             path: 'https://th.bing.com/th/id/OIP.PjEEpTUmWTYHQfrV12DTAgHaEK?w=301&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 17000,
@@ -484,6 +530,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:20,
             name: 'Nissan Altima',
             path: 'https://th.bing.com/th/id/OIP.7SbqWOBBGvH4co-ezB3ZqAHaEK?w=275&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 13000,
@@ -503,6 +550,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:21,
             name: 'Jeep Grand Cherokee',
             path: 'https://th.bing.com/th/id/OIP.2ZBwMRIoxE61B09xTuFn5QHaEo?w=307&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 20000,
@@ -522,6 +570,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:22,
             name: 'Volkswagen Passat',
             path: 'https://th.bing.com/th/id/OIP.UwL6lNb3pDPB01v7aeK2CwHaE8?w=268&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 12000,
@@ -542,6 +591,7 @@ const AppProvider = ({children})=>{
         },
         
         {
+            id:23,
             name: 'Subaru Outback',
             path: 'https://th.bing.com/th?id=OIF.E0W%2fpKWaM2h%2fdspyTr%2bCYw&w=267&h=200&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 16000,
@@ -561,6 +611,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:24,
             name: 'Ford Escape',
             path: 'https://th.bing.com/th/id/OIP.qO9V6D0VA9NmljOiCqdkrgHaE5?w=277&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 15000,
@@ -580,6 +631,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:25,
             name: 'Chevrolet Equinox',
             path: 'https://th.bing.com/th/id/OIP.ZiLRN3aj-qaExgRsgmESHwHaFj?w=236&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 14000,
@@ -599,6 +651,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:26,
             name: 'Hyundai Santa Fe',
             path: 'https://th.bing.com/th/id/OIP.tbKfFJxFfmJ5udCcjl4-fQHaEL?w=251&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 16000,
@@ -618,6 +671,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:27,
             name: 'Kia Sorento',
             path: 'https://th.bing.com/th/id/OIF.ndjYo2qRsY1hyOHeYTDFwQ?w=326&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 17000,
@@ -637,6 +691,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:28,
             name: 'Mazda CX-9',
             path: 'https://th.bing.com/th/id/OIP.lvZ8vqM7n489jSgT_YtBqAHaEK?w=243&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 18000,
@@ -656,6 +711,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:29,
             name: 'Ford Escape',
             path: 'https://th.bing.com/th/id/OIP.idf_YlgWWwSNf69lom_fxQHaE6?w=254&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 15000,
@@ -675,6 +731,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:30,
             name: 'Chevrolet Equinox',
             path: 'https://th.bing.com/th/id/OIP.ME6YJRcX8ap-n-3KZjJ0LQHaEh?w=260&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 14000,
@@ -694,6 +751,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:31,
             name: 'Hyundai Santa Fe',
             path: 'https://th.bing.com/th/id/OIP.0dC75GjEZu6W7vRZnDeBSgHaEK?w=307&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 16000,
@@ -713,6 +771,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:32,
             name: 'Mazda CX-9',
             path: 'https://th.bing.com/th/id/OIP.lvZ8vqM7n489jSgT_YtBqAHaEK?w=243&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 18000,
@@ -732,6 +791,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:33,
             name: 'Honda CR-V',
             path: 'https://th.bing.com/th/id/R.d6c5581b1e4e8d51c5b204ac5c3bb211?rik=70LGgYTahdtJgQ&pid=ImgRaw&r=0',
             rentalPricePerDay: 16000,
@@ -751,6 +811,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:34,
             name: 'Toyota Highlander',
             path: 'https://th.bing.com/th/id/OIP.wKynKdgatvT9ePgYydk54wHaE7?w=274&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 18000,
@@ -770,6 +831,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:35,
             name: 'Ford Edge',
             path: 'https://th.bing.com/th/id/OIP.nOBLZcG8teybEThlnKVQ6gHaE9?w=301&h=201&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 17000,
@@ -789,6 +851,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:36,
             name: 'Chevrolet Traverse',
             path: 'https://th.bing.com/th/id/OIP._WaAkZnSJqbQaOSXxER9SwHaFj?w=219&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 19000,
@@ -808,6 +871,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:37,
             name: 'Jeep Wrangler',
             path: 'https://th.bing.com/th/id/OIP.MrWr3842imxMo9q0Ab01XwHaE6?w=202&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 20000,
@@ -828,6 +892,7 @@ const AppProvider = ({children})=>{
         },
         
         {
+            id:38,
             name: 'Honda CR-V',
             path: 'https://th.bing.com/th/id/OIP.w6pFtolt1wVyOyRBVSWEKwHaEv?w=236&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 16000,
@@ -846,7 +911,8 @@ const AppProvider = ({children})=>{
             comments: ['Comfortable and reliable', 'Great for city driving'],
             yearsSpent: 2
         },
-        {
+        {   
+            id:39,
             name: 'Toyota Highlander',
             path: 'https://th.bing.com/th/id/OIP.wKynKdgatvT9ePgYydk54wHaE7?w=274&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 18000,
@@ -866,6 +932,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:40,
             name: 'Ford Edge',
             path: 'https://th.bing.com/th/id/OIP.ZxJSdABFk-8qphYuNQtqCQHaEK?w=255&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 17000,
@@ -885,6 +952,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:41,
             name: 'Chevrolet Traverse',
             path: 'https://th.bing.com/th/id/OIP.oqnd_gXlv8kgPDXYsFN0pAHaFj?w=225&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 19000,
@@ -904,6 +972,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:42,
             name: 'Jeep Wrangler',
             path: 'https://th.bing.com/th/id/OIP.2I1dAjj1Ld_J3WjW6i1n7wHaEc?w=291&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 20000,
@@ -922,7 +991,8 @@ const AppProvider = ({children})=>{
             comments: ['Rugged and powerful', 'Great for adventures'],
             yearsSpent: 3
         },
-        {
+        {   
+            id:43,
             name: 'Nissan Murano',
             path: 'https://th.bing.com/th/id/OIP.l3eku-hcRv6TYZ_YiuTOUAHaEK?w=290&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 18000,
@@ -942,7 +1012,8 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         
-        {
+        {   
+            id:44,
             name: 'Toyota Corolla',
             path: 'https://th.bing.com/th/id/OIP.EHgzuFfwOniySwFkYaYwNwHaE8?w=250&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 13000,
@@ -962,6 +1033,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:45,
             name: 'Honda Civic',
             path: 'https://th.bing.com/th/id/OIP.gfFUO9hsaeXVQxm8KepafQAAAA?w=335&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 12000,
@@ -981,6 +1053,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:46,
             name: 'Ford Escape',
             path: 'https://th.bing.com/th/id/OIP.i7cfAy2jux2PnSJF0jQLGgHaEo?w=296&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 15000,
@@ -1000,6 +1073,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:47,
             name: 'Chevrolet Equinox',
             path: 'https://th.bing.com/th/id/OIP.vtdArPqFHX37bFBh-tRJjQHaEA?w=314&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 16000,
@@ -1018,7 +1092,8 @@ const AppProvider = ({children})=>{
             comments: ['Comfortable and spacious', 'Smooth ride'],
             yearsSpent: 2
         },
-        {
+        {   
+            id:48,
             name: 'Tesla Model 3',
             path: 'https://th.bing.com/th/id/OIP.SrTktqaFgifHftTCqxA2HgHaEK?w=302&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 20000,
@@ -1037,7 +1112,8 @@ const AppProvider = ({children})=>{
             comments: ['Cutting-edge technology', 'Luxurious interior'],
             yearsSpent: 1
         },
-        {
+        {   
+            id:49,
             name: 'Hyundai Elantra',
             path: 'https://th.bing.com/th/id/R.a848b04d748489594aa4879e7199d267?rik=P5kgsSy6LdbNBQ&riu=http%3a%2f%2fwww.blogcdn.com%2fwww.autoblog.com%2fmedia%2f2010%2f12%2f01-2011-hyundai-elantra-fd.jpg&ehk=fgoUddaOwrh7bzB4zy0LRYoOpPB4Bdm36XsJyeUv%2b3I%3d&risl=&pid=ImgRaw&r=0',
             rentalPricePerDay: 12500,
@@ -1057,6 +1133,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:50,
             name: 'BMW X5',
             path: 'https://th.bing.com/th/id/OIP.91-q12dUjM4tNYbVbusD1QHaEn?w=264&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 25000,
@@ -1076,6 +1153,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:51,
             name: 'Mercedes-Benz C-Class',
             path: 'https://th.bing.com/th/id/OIP.32T_e0u8CFtxUW-aZgD3LwHaD4?w=324&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 30000,
@@ -1094,7 +1172,8 @@ const AppProvider = ({children})=>{
             comments: ['Sophisticated and elegant', 'Cutting-edge technology'],
             yearsSpent: 1
         },
-        {
+        {   
+            id:52,
             name: 'Kia Sportage',
             path: 'https://th.bing.com/th/id/OIP.0-MNSY0FrsPXhpWqOcpnbAHaFj?w=183&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 14000,
@@ -1114,6 +1193,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:53,
             name: 'Mazda CX-5',
             path: 'https://th.bing.com/th/id/OIP.5J6nqiP5v3W0_Qyn54hxQwHaE8?w=220&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 14500,
@@ -1133,6 +1213,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:54,
             name: 'Volkswagen Golf',
             path: 'https://th.bing.com/th/id/OIP.DhGOntyn4LY7YKJKWXz_7wHaEA?w=272&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 11000,
@@ -1152,6 +1233,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:55,
             name: 'Subaru Outback',
             path: 'https://th.bing.com/th/id/OIF.OULsfG7tJM0cqiIksoJAMA?w=278&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 17000,
@@ -1171,6 +1253,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:56,
             name: 'Audi A4',
             path: 'https://th.bing.com/th/id/OIP.o8xP7QMGHeJ9Y0I7HGs77QHaEK?w=303&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 22000,
@@ -1190,6 +1273,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:57,
             name: 'Jeep Wrangler',
             path: 'https://th.bing.com/th?id=OIF.w%2fku%2f6mfTOsoO3NWd%2bhxiA&w=274&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 25000,
@@ -1209,6 +1293,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 3
         },
         {
+            id:58,
             name: 'Hyundai Sonata',
             path: 'https://th.bing.com/th/id/OIP.DHILS33qT3wuN_WKtZVXegHaEn?w=279&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 13000,
@@ -1228,6 +1313,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:59,
             name: 'Toyota Highlander',
             path: 'https://th.bing.com/th/id/OIP.GN-KrqsXln_jv8S3j0rpqwHaFF?w=248&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 18000,
@@ -1247,6 +1333,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:60,
             name: 'Chevrolet Malibu',
             path: 'https://th.bing.com/th?id=OIF.crm%2fVEUBf2n6XipRSN7O3g&w=291&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 12500,
@@ -1266,6 +1353,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:61,
             name: 'Lexus RX 350',
             path: 'https://th.bing.com/th/id/OIP.Z0eKCEGuhIdxnmPPNNK36AHaFj?w=263&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 28000,
@@ -1285,6 +1373,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:62,
             name: 'Tesla Model Y',
             path: 'https://th.bing.com/th/id/OIP.Mur8yoAiAm_Rk8Gtto6yDAHaEK?w=283&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 22000,
@@ -1304,6 +1393,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:63,
             name: 'Ford Explorer',
             path: 'https://th.bing.com/th/id/OIP.ReKiSWxL8e0j9uoDFBGrjwHaEK?w=321&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 17000,
@@ -1323,6 +1413,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 2
         },
         {
+            id:64,
             name: 'Honda Civic',
             path: 'https://th.bing.com/th/id/OIP.48xRo3n5LWIMhqDcTgQcKAHaE7?w=247&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 11000,
@@ -1342,6 +1433,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:65,
             name: 'Toyota Camry',
             path: 'https://th.bing.com/th/id/OIP.FntotHBxoN3wokbDfcCn1gHaE8?w=268&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 13500,
@@ -1361,6 +1453,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:66,
             name: 'Nissan Altima',
             path: 'https://th.bing.com/th/id/OIP.7SbqWOBBGvH4co-ezB3ZqAHaEK?w=275&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 12000,
@@ -1380,6 +1473,7 @@ const AppProvider = ({children})=>{
             yearsSpent: 1
         },
         {
+            id:67,
             name: 'Chevrolet Tahoe',
             path: 'https://th.bing.com/th/id/OIP.SSe1aOEuB1VWYtnAeo9xiwHaEK?w=322&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 20000,
@@ -1401,6 +1495,7 @@ const AppProvider = ({children})=>{
        
        
         {
+            id:68,
             name: 'Kia Sportage',
             path: 'https://th.bing.com/th/id/OIP.mtfmOPAb6yHmY1rkDkT7SgHaEA?w=298&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 14000,
@@ -1423,6 +1518,7 @@ const AppProvider = ({children})=>{
             yearsOnApp: 3
         },
         {
+            id:69,
             name: 'Volkswagen Tiguan',
             path: 'https://th.bing.com/th/id/OIP.xWCzETjvhzxtryErcOsE2QHaD9?w=239&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 15000,
@@ -1445,6 +1541,7 @@ const AppProvider = ({children})=>{
             yearsOnApp: 5
         },
         {
+            id:70,
             name: 'Mercedes-Benz C-Class',
             path: 'https://th.bing.com/th/id/OIP.lfmVVLMio1Kph8SKDdnFkAHaEK?w=229&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 24000,
@@ -1467,6 +1564,7 @@ const AppProvider = ({children})=>{
             yearsOnApp: 4
         },
         {
+            id:71,
             name: 'Chevrolet Silverado',
             path: 'https://m.atcdn.co.uk/ect/media/b9218018278a4b5da08f4ebce7f973da.jpg',
             rentalPricePerDay: 15000,
@@ -1489,6 +1587,7 @@ const AppProvider = ({children})=>{
             yearsOnApp: 2
         },
         {
+            id:72,
             name: 'Toyota RAV4',
             path: 'https://th.bing.com/th/id/OIP.1WpNuROW8eID9Ydfqc16IgHaE8?w=273&h=182&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 12000,
@@ -1511,6 +1610,7 @@ const AppProvider = ({children})=>{
             yearsOnApp: 3
         },
         {
+            id:73,
             name: 'Tesla Model Y',
             path: 'https://th.bing.com/th/id/OIP.bFGFuca02j7k2oyOxjFMgAHaEK?w=302&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
             rentalPricePerDay: 25000,
@@ -1531,33 +1631,12 @@ const AppProvider = ({children})=>{
                 'Loved the autopilot feature, very smooth ride.',
             ],
             yearsOnApp: 1
-        },
-        {
-            name: 'Honda CR-V',
-            path: 'https://th.bing.com/th/id/OIF.KmWIq8D8D0kZ1Z2z5np7pA?w=282&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-            rentalPricePerDay: 13000,
-            category: 'Compact Cars',
-            state: 'Port Harcourt',
-            country: 'Nigeria',
-            manufactureYear: '2021',
-            trending: false,
-            description: 'The Honda CR-V is spacious, efficient, and perfect for all kinds of adventures.',
-            acceleration: '0-60 mph in 8.2 seconds',
-            engineSize: '1.5L Turbo 4-cylinder',
-            electric: false,
-            horsePower: '190 hp',
-            profileName: 'PH Adventures',
-            reviewScore: 4.7,
-            comments: [
-                'Spacious and great for road trips!',
-                'Handled well even on rough roads.',
-            ],
-            yearsOnApp: 3
         }
+
     ])
 
     return(
-        <AppContext.Provider value={{ carCategories, setCarCategories,carListings,setCarListings,form,setForm,isLoggedIn,setIsLoggedIn }}>
+        <AppContext.Provider value={{ carCategories, setCarCategories,carListings,setCarListings,form,setForm,isLoggedIn,setIsLoggedIn,CurrentCategory,setCurrentCategory,detailsIndex,setDetailsIndex }}>
             {children}
         </AppContext.Provider>
     )

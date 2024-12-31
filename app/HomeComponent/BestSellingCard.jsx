@@ -1,5 +1,5 @@
 import { View, Text, ImageBackground, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React,{useContext} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTags } from '@fortawesome/free-solid-svg-icons/faTags'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons/faBookmark'
@@ -7,13 +7,18 @@ import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
 
 import { StarRatingDisplay } from 'react-native-star-rating-widget';
 import { router } from 'expo-router'
+import {AppContext,AppProvider} from '../Context.jsx'
 
 
 const BestSellingCard = (props) => {
-    const {name,path,price,score,category} = props
+    const {carListings,detailsIndex,setDetailsIndex} = useContext(AppContext)
+    const {name,path,price,score,category,id} = props
     return (
-        <TouchableOpacity onPress={()=>{router.push('/carDetails')}}>
-            <View className='w-80 mr-6 object-contain'>
+        <TouchableOpacity onPress={()=>{
+            setDetailsIndex(id)
+            router.push('/carDetails')
+            }}>
+            <View className='w-96 mr-6 object-contain'>
                 <View className='object-contain rounded-md overflow-hidden'>
                     <ImageBackground source={typeof path === 'string'? {uri: path}:path} className='w-full h-80 justify-center items-center bg-primary rounded-2xl bg-blend-multiply'style={{backgroundBlendMode:'multiply'}} >
                         <View className=' bg-primary w-full h-full opacity-25 absolute'>
