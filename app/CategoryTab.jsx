@@ -8,6 +8,7 @@ import BestSellingCard from './HomeComponent/BestSellingCard.jsx'
 const CategoryTab = () => {
   const {carListings,CurrentCategory} = useContext(AppContext)
   const Available = carListings.filter(car => car.category == CurrentCategory)
+  
   if (Available.length==0)
     return(
       <View className = {`bg-dark-200 flex-1 items-center pl-4 justify-between`} style={{paddingTop:StatusBar.currentHeight+20}}>
@@ -15,8 +16,8 @@ const CategoryTab = () => {
           {CurrentCategory}
         </Text>
         <View className='mt-64'>
-          <Text className='h-full text-xl font-QuickSand text-primary '>
-              Oops, we dont have any vehicle under {CurrentCategory} available try again some other time
+          <Text className='h-full text-md font-QuickSand text-primary '>
+              Oops, we dont have any {CurrentCategory} available try again some other time
           </Text>
           <Image source={require('../assets/images/Wetfloor.png')} style={{width:100, height:100,resizeMode: 'contain'}} /> 
         </View>
@@ -29,15 +30,18 @@ const CategoryTab = () => {
           {CurrentCategory}
         </Text>
           <FlatList
-          style={{borderTopColor:'#FF934F', borderTopWidth:5,borderTopRightRadius:10}}
+          style={{borderTopColor:'#FF934F', borderTopWidth:2,borderTopRightRadius:10}}
           data = {Available}
-          keyExtractor={(item,index)=>index.toString()}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={({item})=>{
             return(
-              <BestSellingCard name = {item.name} path = {item.path} price = {item.rentalPricePerDay} score ={item.reviewStore} category = {item.category}/>
+              <BestSellingCard name = {item.name} path = {item.path} price = {item.rentalPricePerDay} score ={item.reviewStore} category = {item.category} id = {item.id}/>
             )
           }}
           ItemSeparatorComponent={()=><View style={{height:50}}></View>}
+          ListFooterComponent={<View style={{ height: 50 }} />}
+          ListHeaderComponent={<View style={{ height: 10 }} />}
+
           />
 
       </SafeAreaView>

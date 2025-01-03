@@ -10,7 +10,7 @@ const DetailRent = (props) => {
             {price}<Text className='text-lg'> / day</Text>
             </Text>
             <TouchableOpacity className='bg-primary p-4 rounded-full'>
-            <Text className='text-white font-QuickSand'>
+            <Text className='text-slate-100 font-QuickSand'>
                 Rent Now
             </Text>
             </TouchableOpacity>

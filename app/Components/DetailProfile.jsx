@@ -10,14 +10,14 @@ const DetailProfile = () => {
   return (
     <View>
            <View className ='bg-[#ff924f63] mt-10 mb-5 h-36 mx-4 rounded-xl gap-4 p-2'>
-                <Text className='text-xl text-slate-300 font-Handlee'>
+                <Text className='text-xl text-slate-100 font-Handlee'>
                     Meet the renter
                 </Text>
             <View className=' flex-row justify-between p-4 '>
                     
                     <View className='flex-row items-start gap-2'>
                     <View >
-                        <Image source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8UDpyRVcLyyOViNVGvvk-TRAbmWfif0nemg&s'}} width={45} height={45} resizeMode='contain' className='rounded-full '/>
+                        <Image source={typeof carListings[detailsIndex].profilepic === 'string'? {uri: carListings[detailsIndex].profilepic}:carListings[detailsIndex].profilepic} width={45} height={45} resizeMode='cover' className='rounded-full '/>
                     </View>
 
                     <View>

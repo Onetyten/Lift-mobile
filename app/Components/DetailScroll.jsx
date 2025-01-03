@@ -14,8 +14,8 @@ const DetailScroll = () => {
                     <Text className='font-QuickSand text-xs'>
                       Horse Power
                     </Text>
-                    <Text className='text-white font-QuickSand w-full'>
-                      {carListings[2].horsePower}
+                    <Text className='text-slate-100 font-QuickSand w-full'>
+                      {carListings[detailsIndex].horsePower}
                     </Text>
                 </View>
 
@@ -23,8 +23,8 @@ const DetailScroll = () => {
                     <Text className='font-QuickSand text-xs'>
                       0-60 mph
                     </Text>
-                    <Text className='text-white font-QuickSand w-full'>
-                      {carListings[2].acceleration}
+                    <Text className='text-slate-100 font-QuickSand w-full'>
+                      {carListings[detailsIndex].acceleration}
                     </Text>
                 </View>
 
@@ -32,8 +32,8 @@ const DetailScroll = () => {
                     <Text className='font-QuickSand text-xs'>
                       Engine Size
                     </Text>
-                    <Text className='text-white font-QuickSand w-full'>
-                      {carListings[2].engineSize}
+                    <Text className='text-slate-100 font-QuickSand w-full'>
+                      {carListings[detailsIndex].engineSize}
                     </Text>
                 </View>
                 

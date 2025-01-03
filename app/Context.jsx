@@ -137,6 +137,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '190 hp',
             profileName: 'PH Adventures',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewScore: 4.7,
             comments: [
                 'Spacious and great for road trips!',
@@ -160,6 +161,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: "181 hp",
             profileName: "Adebola",
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,        
             comments: ["Great car!", "Loved the ride"], 
             yearsSpent: 1            
@@ -180,6 +182,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: "203 hp",
             profileName: "Chiamaka", 
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,          
             comments: ["Very comfortable!", "Smooth ride"], 
             yearsSpent: 2              
@@ -199,7 +202,8 @@ const AppProvider = ({children})=>{
             engineSize: "Electric Motor",
             electric: true,
             horsePower: "283 hp",
-            profileName: "Kwame", 
+            profileName: "Kwame",
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,         
             comments: ["Amazing tech!", "Very fast"], 
             yearsSpent: 3             
@@ -220,6 +224,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: "203 hp",
             profileName: "Ngozi", 
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,        
             comments: ["Great fuel efficiency", "Smooth ride"], 
             yearsSpent: 1            
@@ -240,7 +245,8 @@ const AppProvider = ({children})=>{
             engineSize: "1.5L turbocharged 4-cylinder",
             electric: false,
             horsePower: "192 hp",
-            profileName: "Abiola", 
+            profileName: "Abiola",
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" , 
             reviewStore: 4.8,            
             comments: ["Very spacious", "Excellent handling"], 
             yearsSpent: 2                
@@ -262,6 +268,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '300 hp',
             profileName: 'Ifeanyi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Spacious and comfortable', 'Perfect for trips'],
             yearsSpent: 3
@@ -282,6 +289,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '160 hp',
             profileName: 'Adewale',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,
             comments: ['Stylish and efficient', 'Great fuel economy'],
             yearsSpent: 2
@@ -302,6 +310,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '335 hp',
             profileName: 'Kofi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,
             comments: ['Luxurious and powerful', 'High-end features'],
             yearsSpent: 3
@@ -322,6 +331,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '255 hp',
             profileName: 'Oluwaseun',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Luxurious ride', 'Top-notch features'],
             yearsSpent: 2
@@ -342,6 +352,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '261 hp',
             profileName: 'Bongani',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Comfortable and high-tech', 'Smooth ride'],
             yearsSpent: 2
@@ -363,6 +374,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '187 hp',
             profileName: 'Chidinma',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Stylish and comfortable', 'Great for city driving'],
             yearsSpent: 2
@@ -383,6 +395,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '181 hp',
             profileName: 'Tolu',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Comfortable and reliable', 'Perfect for trips'],
             yearsSpent: 1
@@ -403,6 +416,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '187 hp',
             profileName: 'Yemi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Smooth ride', 'Spacious interior'],
             yearsSpent: 2
@@ -423,6 +437,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '203 hp',
             profileName: 'Binta',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,
             comments: ['Versatile and reliable', 'Great for long trips'],
             yearsSpent: 3
@@ -444,6 +459,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '188 hp',
             profileName: 'Amina',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,
             comments: ['Stylish and efficient', 'Comfortable ride'],
             yearsSpent: 2
@@ -464,6 +480,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '293 hp',
             profileName: 'Babajide',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Rugged and spacious', 'Great for adventures'],
             yearsSpent: 3
@@ -484,6 +501,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '174 hp',
             profileName: 'Chukwuemeka',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Stylish and comfortable', 'Great for city driving'],
             yearsSpent: 2
@@ -504,6 +522,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '182 hp',
             profileName: 'Funke',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Reliable and versatile', 'Spacious interior'],
             yearsSpent: 3
@@ -525,6 +544,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '203 hp',
             profileName: 'Binta',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,
             comments: ['Versatile and reliable', 'Great for long trips'],
             yearsSpent: 3
@@ -545,6 +565,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '188 hp',
             profileName: 'Amina',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,
             comments: ['Stylish and efficient', 'Comfortable ride'],
             yearsSpent: 2
@@ -565,6 +586,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '293 hp',
             profileName: 'Babajide',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Rugged and spacious', 'Great for adventures'],
             yearsSpent: 3
@@ -585,6 +607,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '174 hp',
             profileName: 'Chukwuemeka',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Stylish and comfortable', 'Great for city driving'],
             yearsSpent: 2
@@ -606,6 +629,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '182 hp',
             profileName: 'Funke',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Reliable and versatile', 'Spacious interior'],
             yearsSpent: 3
@@ -626,6 +650,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '250 hp',
             profileName: 'Nkem',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Comfortable and powerful', 'Great for city driving'],
             yearsSpent: 2
@@ -646,6 +671,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '170 hp',
             profileName: 'Ifeoma',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,
             comments: ['Comfortable and reliable', 'Perfect for trips'],
             yearsSpent: 2
@@ -666,6 +692,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '191 hp',
             profileName: 'Adewale',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Smooth ride', 'Spacious interior'],
             yearsSpent: 3
@@ -686,6 +713,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '281 hp',
             profileName: 'Oluwaseun',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Comfortable and powerful', 'Great for long trips'],
             yearsSpent: 2
@@ -706,6 +734,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '250 hp',
             profileName: 'Chidi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Smooth ride', 'Spacious interior'],
             yearsSpent: 3
@@ -726,6 +755,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '250 hp',
             profileName: 'Nkem',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Comfortable and powerful', 'Great for city driving'],
             yearsSpent: 2
@@ -746,6 +776,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '170 hp',
             profileName: 'Ifeoma',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,
             comments: ['Comfortable and reliable', 'Perfect for trips'],
             yearsSpent: 2
@@ -766,6 +797,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '191 hp',
             profileName: 'Adewale',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Smooth ride', 'Spacious interior'],
             yearsSpent: 3
@@ -786,6 +818,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '250 hp',
             profileName: 'Chidi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Smooth ride', 'Spacious interior'],
             yearsSpent: 3
@@ -806,6 +839,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '190 hp',
             profileName: 'Adaobi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Comfortable and reliable', 'Great for city driving'],
             yearsSpent: 2
@@ -826,6 +860,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '295 hp',
             profileName: 'Kelechi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Powerful and comfortable', 'Great for long trips'],
             yearsSpent: 3
@@ -846,6 +881,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '335 hp',
             profileName: 'Emeka',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Powerful and smooth', 'Great for city driving'],
             yearsSpent: 2
@@ -866,6 +902,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '310 hp',
             profileName: 'Bayo',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Spacious and comfortable', 'Great for long trips'],
             yearsSpent: 3
@@ -886,6 +923,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '285 hp',
             profileName: 'Gbenga',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,
             comments: ['Rugged and powerful', 'Great for adventures'],
             yearsSpent: 3
@@ -907,6 +945,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '190 hp',
             profileName: 'Adaobi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Comfortable and reliable', 'Great for city driving'],
             yearsSpent: 2
@@ -927,6 +966,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '295 hp',
             profileName: 'Kelechi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Powerful and comfortable', 'Great for long trips'],
             yearsSpent: 3
@@ -947,6 +987,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '335 hp',
             profileName: 'Emeka',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Powerful and smooth', 'Great for city driving'],
             yearsSpent: 2
@@ -967,6 +1008,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '310 hp',
             profileName: 'Bayo',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Spacious and comfortable', 'Great for long trips'],
             yearsSpent: 3
@@ -987,6 +1029,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '285 hp',
             profileName: 'Gbenga',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,
             comments: ['Rugged and powerful', 'Great for adventures'],
             yearsSpent: 3
@@ -1007,6 +1050,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '260 hp',
             profileName: 'Chinelo',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Stylish and comfortable', 'Great for long trips'],
             yearsSpent: 2
@@ -1028,6 +1072,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '139 hp',
             profileName: 'Fatima',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.4,
             comments: ['Fuel-efficient', 'Comfortable seating'],
             yearsSpent: 1
@@ -1048,6 +1093,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '158 hp',
             profileName: 'Oluwatosin',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Sporty and reliable', 'Engaging drive'],
             yearsSpent: 2
@@ -1068,6 +1114,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '250 hp',
             profileName: 'Amina',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,
             comments: ['Versatile and spacious', 'Great performance'],
             yearsSpent: 1
@@ -1088,6 +1135,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '170 hp',
             profileName: 'Chidiebere',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Comfortable and spacious', 'Smooth ride'],
             yearsSpent: 2
@@ -1108,6 +1156,7 @@ const AppProvider = ({children})=>{
             electric: true,
             horsePower: '283 hp',
             profileName: 'Adebayo',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,
             comments: ['Cutting-edge technology', 'Luxurious interior'],
             yearsSpent: 1
@@ -1128,6 +1177,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '147 hp',
             profileName: 'Zainab',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Stylish and efficient', 'Reliable sedan'],
             yearsSpent: 1
@@ -1148,6 +1198,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '335 hp',
             profileName: 'Ikenna',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Luxury and performance', 'Powerful engine'],
             yearsSpent: 2
@@ -1168,6 +1219,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '255 hp',
             profileName: 'Bashir',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,
             comments: ['Sophisticated and elegant', 'Cutting-edge technology'],
             yearsSpent: 1
@@ -1188,6 +1240,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '181 hp',
             profileName: 'Ndidi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Reliable and practical', 'Versatile'],
             yearsSpent: 2
@@ -1208,6 +1261,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '187 hp',
             profileName: 'Nkechi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Exceptional performance', 'Refined styling'],
             yearsSpent: 2
@@ -1228,6 +1282,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '147 hp',
             profileName: 'Bolanle',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.4,
             comments: ['Versatile and reliable', 'Comfortable ride'],
             yearsSpent: 1
@@ -1248,6 +1303,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '260 hp',
             profileName: 'Yakubu',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Ultimate adventure companion', 'Ready for any journey'],
             yearsSpent: 2
@@ -1268,6 +1324,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '201 hp',
             profileName: 'Salihu',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,
             comments: ['Elegant and high-performance', 'Ideal for business trips'],
             yearsSpent: 2
@@ -1288,6 +1345,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '285 hp',
             profileName: 'Tunde',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Rugged and high-performing', 'Great for off-road adventures'],
             yearsSpent: 3
@@ -1308,6 +1366,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '191 hp',
             profileName: 'Olubunmi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,
             comments: ['Stylish and reliable', 'Great for daily drives'],
             yearsSpent: 1
@@ -1328,6 +1387,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '295 hp',
             profileName: 'Ifeanyi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Spacious and reliable', 'Great for family trips'],
             yearsSpent: 2
@@ -1348,6 +1408,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '160 hp',
             profileName: 'Chinwe',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,
             comments: ['Comfortable ride', 'Sleek design'],
             yearsSpent: 1
@@ -1368,6 +1429,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '295 hp',
             profileName: 'Temidayo',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Luxurious and comfortable', 'Great performance'],
             yearsSpent: 1
@@ -1388,6 +1450,7 @@ const AppProvider = ({children})=>{
             electric: true,
             horsePower: '384 hp',
             profileName: 'Chukwudi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.9,
             comments: ['Cutting-edge technology', 'Exceptional performance'],
             yearsSpent: 1
@@ -1408,6 +1471,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '400 hp',
             profileName: 'Adeola',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Spacious and powerful', 'Great for road trips'],
             yearsSpent: 2
@@ -1428,6 +1492,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '158 hp',
             profileName: 'Nneka',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.6,
             comments: ['Reliable and fuel-efficient', 'Sleek design'],
             yearsSpent: 1
@@ -1448,6 +1513,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '203 hp',
             profileName: 'Titi',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.7,
             comments: ['Smooth and stylish', 'Incredibly comfortable'],
             yearsSpent: 1
@@ -1468,6 +1534,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '188 hp',
             profileName: 'Zainab',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.5,
             comments: ['Stylish and reliable', 'Great for road trips'],
             yearsSpent: 1
@@ -1488,6 +1555,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '355 hp',
             profileName: 'Kehinde',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewStore: 4.8,
             comments: ['Handles tough terrain', 'Perfect for big groups'],
             yearsSpent: 2
@@ -1510,6 +1578,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '181 hp',
             profileName: 'Enugu Rides',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewScore: 4.5,
             comments: [
                 'Smooth ride and excellent fuel efficiency!',
@@ -1533,6 +1602,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '184 hp',
             profileName: 'Benin Motors',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewScore: 4.7,
             comments: [
                 'Very spacious and comfortable for family trips.',
@@ -1556,6 +1626,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '255 hp',
             profileName: 'Lagos Luxury Rentals',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewScore: 4.9,
             comments: [
                 'Incredible luxury and smooth performance!',
@@ -1579,6 +1650,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '355 hp',
             profileName: 'Abuja Auto Rentals',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewScore: 4.6,
             comments: [
                 'Great for moving heavy loads with ease!',
@@ -1602,6 +1674,7 @@ const AppProvider = ({children})=>{
             electric: false,
             horsePower: '203 hp',
             profileName: 'Ibadan Drives',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewScore: 4.5,
             comments: [
                 'Super comfortable and very economical!',
@@ -1625,6 +1698,7 @@ const AppProvider = ({children})=>{
             electric: true,
             horsePower: '384 hp',
             profileName: 'Green Lagos Rentals',
+            profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
             reviewScore: 4.9,
             comments: [
                 'Amazing acceleration and futuristic features!',
