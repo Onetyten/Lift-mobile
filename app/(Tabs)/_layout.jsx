@@ -3,10 +3,9 @@ import React from 'react'
 import { Tabs,Redirect } from 'expo-router'
 import HomeIcon from './icons/home.png'
 import ProfileIcon from './icons/profile.png'
-import BookmarkIcon from './icons/bookmark.png'
+import BookmarkIcon from './icons/Cart.png'
 import CreateIcon from './icons/plus.png'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faMugSaucer } from '@fortawesome/free-solid-svg-icons/faMugSaucer'
+
 
 
 
@@ -48,17 +47,7 @@ const TabLayout = () => {
           />
          )
         }}/>
-        <Tabs.Screen name='profile' options={{
-          headerShown:false,
-          title:'Profile',
-          tabBarIcon:({color,focused})=>(
-            <TabIcon 
-              icon={ProfileIcon}
-              color={color}
-              name="Profile"
-              focused={focused}
-            />
-           )}}/>
+        
         <Tabs.Screen name='bookmark' options={{
           headerShown:false,
           title:'Bookmark',
@@ -78,6 +67,17 @@ const TabLayout = () => {
               icon={CreateIcon}
               color={color}
               name="Create"
+              focused={focused}
+            />
+           )}}/>
+           <Tabs.Screen name='profile' options={{
+          headerShown:false,
+          title:'Profile',
+          tabBarIcon:({color,focused})=>(
+            <TabIcon 
+              icon={ProfileIcon}
+              color={color}
+              name="Profile"
               focused={focused}
             />
            )}}/>

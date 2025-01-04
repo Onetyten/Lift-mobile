@@ -11,6 +11,7 @@ const AppProvider = ({children})=>{
     const [isLoading,setIsLoading] = useState(true)
     const [CurrentCategory,setCurrentCategory] = useState('SUV')
     const [detailsIndex,setDetailsIndex] = useState(0)
+    const [bookmark,setBookmark] = useState([])
 
 
     // useEffect(()=>{
@@ -1710,7 +1711,7 @@ const AppProvider = ({children})=>{
     ])
 
     return(
-        <AppContext.Provider value={{ carCategories, setCarCategories,carListings,setCarListings,form,setForm,isLoggedIn,setIsLoggedIn,CurrentCategory,setCurrentCategory,detailsIndex,setDetailsIndex }}>
+        <AppContext.Provider value={{ carCategories, setCarCategories,carListings,setCarListings,form,setForm,isLoggedIn,setIsLoggedIn,CurrentCategory,setCurrentCategory,detailsIndex,setDetailsIndex,bookmark,setBookmark }}>
             {children}
         </AppContext.Provider>
     )
