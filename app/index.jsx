@@ -22,7 +22,7 @@ export default function Index() {
         <Text className="text-2xl text-primary text-center mt-16 font-Handlee">Ride, Share, Earn</Text>
         <ImageBackground source={require('../assets/images/Homepage car.png')} resizeMode="cover" className="w-full h-full justify-center items-center">
           <View className="top-10">
-            <Button title ='Continue with email' handlepress = {()=>{ isLoggedIn ? router.push('/(Tabs)/home') : router.push('/(Signup)/signin')}}/> 
+            <Button title ='Continue with email' handlepress = {()=>{ router.push('/(Tabs)/home') }}/> 
           </View>
 
           

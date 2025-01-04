@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const AppContext = createContext()
 
 const AppProvider = ({children})=>{
-    const [isLoggedIn,setIsLoggedIn] = useState(true)
+    // const [isLoggedIn,setIsLoggedIn] = useState(true)
     const [user,setUser] = useState(null)
     const [isLoading,setIsLoading] = useState(true)
     const [CurrentCategory,setCurrentCategory] = useState('SUV')
@@ -1711,7 +1711,7 @@ const AppProvider = ({children})=>{
     ])
 
     return(
-        <AppContext.Provider value={{ carCategories, setCarCategories,carListings,setCarListings,form,setForm,isLoggedIn,setIsLoggedIn,CurrentCategory,setCurrentCategory,detailsIndex,setDetailsIndex,bookmark,setBookmark }}>
+        <AppContext.Provider value={{ carCategories, setCarCategories,carListings,setCarListings,form,setForm,CurrentCategory,setCurrentCategory,detailsIndex,setDetailsIndex,bookmark,setBookmark }}>
             {children}
         </AppContext.Provider>
     )

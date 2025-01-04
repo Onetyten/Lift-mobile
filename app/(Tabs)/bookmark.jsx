@@ -37,7 +37,7 @@ const Bookmark = () => {
           </View>
         </View>
         <ScrollView className='mt-6'>
-          <View className='flex-row flex-wrap justify-around mb-8'>
+          <View className='flex-row flex-wrap justify-start mb-8'>
             {bookmark.map((item)=>{
               return(
                 <View key={item.id}>
