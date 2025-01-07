@@ -1,9 +1,10 @@
-import { View, Text, ScrollView,Image } from 'react-native'
+import { View, Text, ScrollView,Image, TouchableOpacity } from 'react-native'
 import React ,{useContext} from 'react'
 import {AppContext,AppProvider} from '../Context.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
 import { faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight'
+import { router } from 'expo-router'
 
 const DetailProfile = () => {
     const {carListings,detailsIndex} = useContext(AppContext)
@@ -44,10 +45,13 @@ const DetailProfile = () => {
                     </View>
 
                     <View className='items-end flex-row'>
-                    <Text className='font-QuickSand text-primary' >
-                        Rental rules
-                    </Text>
-                    <FontAwesomeIcon icon={faChevronRight} size={14} color='#FF934F'/> 
+                    <TouchableOpacity onPress={()=>{router.push('/rentalRules')}}>
+                        <Text className='font-QuickSand underline text-primary' >
+                            Rental rules
+                        </Text>
+                    </TouchableOpacity>
+                    
+                    <FontAwesomeIcon icon={faChevronRight} size={14} color='#F5ed31'/> 
 
                     </View>
 

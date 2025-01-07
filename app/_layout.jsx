@@ -64,6 +64,8 @@ export default function RootLayout() {
           <Stack.Screen name="(Pages)" options={{headerShown:false}} />
           <Stack.Screen name="carDetails" options={{headerShown:false}} />
           <Stack.Screen name="categoryTab" options={{headerShown:false}} />
+          <Stack.Screen name="rentalRules" options={{headerShown:false}} />
+          <Stack.Screen name="Checkout" options={{headerShown:false}} />
           <Stack.Screen name="(Signup)" options={{headerShown:false}} />
         </Stack>
       </AppProvider>

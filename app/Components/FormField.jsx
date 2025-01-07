@@ -18,7 +18,10 @@ const FormField = (props) => {
     <View className=' justify-center items-center mt-6'>
       <Text className='text-left w-full px-5 p-2 text-primary font-Handlee text-md'>{title}</Text>
       <View className={`bg-dark opacity-30 border-primary ${active==true ? 'border-[1px] opacity-70':'border-0'} w-11/12 rounded-md px-3  h-16 flex-row justify-between items-center`}>
+      
         <TextInput className='h-full flex-1 text-lg text-primary font-QuickSand '  placeholder= {placeholdertext} placeholderTextColor='#a4816c' secureTextEntry={title == 'Password'&& showPassword} onFocus={()=>{setactive(true)}} onBlur={()=>{setactive(false)}}  keyboardType={keyboardType} onChangeText={handlechangetext} />
+
+
         {
             title == 'Password' &&(
                 <TouchableOpacity onPress={(()=>{setShowPassword(!showPassword)})}>

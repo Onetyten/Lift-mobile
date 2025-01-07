@@ -74,7 +74,9 @@ const CarDetails = () => {
                         </View>
                         
                       </View>
-                      <TouchableOpacity>
+                      <TouchableOpacity onPress={()=>{
+                        closePopUp()
+                        router.push('/Checkout')}}>
                         <View className='bg-dark-100 w-28 p-4 mb-5 rounded-xl'>
                           <Text className='text-md text-primary text-center font-QuickSand'>
                             Checkout

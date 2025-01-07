@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { router } from 'expo-router'
 import {AppContext,AppProvider} from '../Context.jsx'
-
+ 
 
 const CartItem = (props) => {
     const {carListings,detailsIndex,setDetailsIndex,bookmark,setBookmark} = useContext(AppContext)
     const {name,path,price,score,category,id} = props
     return (
         <TouchableOpacity onPress={()=>{
-            setDetailsIndex(id)
+            
             router.push('/carDetails')
             }}>
             <View className='w-28 mx-2 mb-7 object-contain'>
@@ -25,6 +25,7 @@ const CartItem = (props) => {
                         </View>
                         <View className='absolute bottom-2 right-3 flex-row items-center gap-2 '>
                         <TouchableOpacity className='' onPress={()=>{setBookmark(prevBookmark =>{
+                            setDetailsIndex(id)
                             const isBookmarked = prevBookmark.some(bookmark=>bookmark.id === carListings[detailsIndex].id)
                             if(isBookmarked) 
                             {
