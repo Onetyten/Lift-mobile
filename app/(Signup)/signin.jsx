@@ -39,7 +39,7 @@ const Signin = () => {
       <ScrollView>
         <View className='w-full justify-center h-[85vh]'>
             <Text className='text-2xl text-dark-100 ml-4 w-full mb-48 top-32'>
-              Log in to <Text className='font-logam text-3xl text-primary'>Rideshare</Text>
+              Log in to <Text className='font-logam text-3xl text-primary'>Lift mobile</Text>
             </Text>
             <View className='border-2 p-3 m-2 rounded-xl border-primary'>
               <FormField placeholdertext= 'Enter your email' title = 'Email' value ={form.email} keyboardType = 'email-address' handlechangetext={(e)=>setForm({...form, email:e})}/>

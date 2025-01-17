@@ -38,7 +38,7 @@ const Signup = () => {
       <ScrollView>
         <View className='w-full justify-center h-[85vh]'>
             <Text className='text-2xl text-dark-100 ml-4 w-full mb-48 top-48'>
-              Create a <Text className='font-logam text-3xl text-primary'>Rideshare</Text> account
+              Create a <Text className='font-logam text-3xl text-primary'>Lift mobile</Text> account
             </Text>
             <View className='border-2 p-3 m-2 rounded-xl border-primary'>
               <FormField placeholdertext= 'Enter your name' title = 'Username' value ={form.userName} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, userName:e})}/>

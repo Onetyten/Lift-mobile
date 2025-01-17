@@ -18,7 +18,7 @@ export default function Index() {
   return (
     <SafeAreaView className="bg-dark-200 flex-1 justify-center items-center">
       <ScrollView className="w-full h-full">
-        <Text className="text-5xl text-primary font-logam w-full mt-56 text-center">RideShare</Text>
+        <Text className="text-5xl text-primary font-logam w-full mt-56 text-center">Lift mobile</Text>
         <Text className="text-2xl text-primary text-center mt-16 font-Handlee">Ride, Share, Earn</Text>
         <ImageBackground source={require('../assets/images/Homepage car.png')} resizeMode="cover" className="w-full h-full justify-center items-center">
           <View className="top-10">

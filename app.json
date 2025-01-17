@@ -16,7 +16,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package":"com.onetyten.RideShare"
+      "package": "com.onetyten.RideShare"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +37,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "44c96f7f-a1e7-4158-b622-53f7ed064757"
+      }
     }
   }
 }
