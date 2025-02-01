@@ -6,7 +6,7 @@ const Button = (props) => {
     const {title,handlepress} = props
   return (
     <TouchableOpacity onPress={handlepress}>
-              <Text className="text-xl p-3 px-4 text-center rounded-md font-Handlee  bg-primary font-extrabold w-full">   
+              <Text className="text-xl p-3 px-4 text-center rounded-md font-Handlee  bg-stone-300 font-extrabold w-full">   
                {title}
               </Text>
     </TouchableOpacity> 

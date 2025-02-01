@@ -10,7 +10,7 @@ const DetailProfile = () => {
     const {carListings,detailsIndex} = useContext(AppContext)
   return (
     <View>
-           <View className ='bg-[#ff924f63] mt-10 mb-5 h-36 mx-4 rounded-xl gap-4 p-2'>
+           <View className ='bg-slate-900 mt-10 mb-5 h-36 mx-4 rounded-xl gap-4 p-2'>
                 <Text className='text-xl text-slate-100 font-Handlee'>
                     Meet the renter
                 </Text>
@@ -23,20 +23,20 @@ const DetailProfile = () => {
 
                     <View>
                         <View>
-                        <Text className='font-QuickSand text-primary'>
+                        <Text className='font-QuickSand text-white'>
                             { carListings[detailsIndex].profileName}
                         </Text>
                         </View>
                         <View className='flex-row mt-1 items-center justify-around gap-3'>
                         <View className='flex-row gap-1'>
                             <FontAwesomeIcon icon={faStar} size={15} color='#f5ed31'/> 
-                            <Text className='font-QuickSand text-primary text-sm'>
+                            <Text className='font-QuickSand text-white text-sm'>
                             { carListings[detailsIndex].reviewStore}
                             </Text> 
 
                         </View>
                         <View>
-                            <Text className='font-QuickSand text-sm text-primary'>
+                            <Text className='font-QuickSand text-sm text-white'>
                             {carListings[detailsIndex].comments.length} reviews
                             </Text>
                         </View>
@@ -46,12 +46,12 @@ const DetailProfile = () => {
 
                     <View className='items-end flex-row'>
                     <TouchableOpacity onPress={()=>{router.push('/rentalRules')}}>
-                        <Text className='font-QuickSand underline text-primary' >
+                        <Text className='font-QuickSand underline text-white' >
                             Rental rules
                         </Text>
                     </TouchableOpacity>
                     
-                    <FontAwesomeIcon icon={faChevronRight} size={14} color='#F5ed31'/> 
+                    <FontAwesomeIcon icon={faChevronRight} size={14} color='#Ffffff'/> 
 
                     </View>
 

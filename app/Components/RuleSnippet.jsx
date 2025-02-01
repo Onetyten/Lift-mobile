@@ -6,7 +6,7 @@ const RuleSnippet = (props) => {
   return (
     <View>
         <View style={{height:10}}></View>
-        <View className='bg-primary my-4 rounded-xl p-3  '>
+        <View className='border-slate-900 border-[1px] my-4 rounded-xl p-3  '>
             <Text className='text-dark-100 text-xl font-Handlee'>{Header}</Text>
             <Text className='text-dark-100 text-md font-QuickSand'>{intro}</Text>
             <View className='pl-14'>

@@ -7,7 +7,7 @@ const BestSelling = () => {
     const {carListings} = useContext(AppContext)
     const BestSelling = carListings.filter(car => car.trending == true)
   return (
-    <View className='w-full  mt-7 flex-row' style={{marginLeft:40}}>
+    <View className='w-full  mt-7 flex-row' style={{marginLeft:5}}>
       <FlatList
       style={{marginBottom: 10,paddingBottom:20}}
       data = {BestSelling}
@@ -18,6 +18,7 @@ const BestSelling = () => {
           <BestSellingCard name = {item.name} path = {item.path} price = {item.rentalPricePerDay} score ={item.reviewStore} category = {item.category} id = {item.id}/>
         )
       }}
+      ItemSeparatorComponent={()=><View style={{width:20}}></View>}
       />
 
     </View>

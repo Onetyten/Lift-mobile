@@ -15,11 +15,11 @@ const CategoriesCards = (props) => {
     router.push('/categoryTab')}}>
     
     <View className='w-40 mr-6 rounded-2xl object-contain h-52  overflow-hidden'>
-        <ImageBackground source={path} className='w-full h-40 justify-center items-center bg-primary bg-blend-multiply'style={{backgroundBlendMode:'multiply'}} >
-            <View className=' bg-primary w-full h-full opacity-25 absolute'>
+        <ImageBackground source={path} className='w-full h-40 justify-center items-center bg-blend-multiply'style={{backgroundBlendMode:'multiply'}} >
+            <View className='  w-full h-full opacity-25 absolute'>
             </View>
         </ImageBackground>
-        <Text className='w-full text-center text-md font-QuickSand text-primary'>{name}</Text>
+        <Text className='w-full text-center text-md font-QuickSand text-slate-900'>{name}</Text>
 
     </View>
 </TouchableOpacity>

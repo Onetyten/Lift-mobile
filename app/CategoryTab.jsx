@@ -11,12 +11,14 @@ const CategoryTab = () => {
   
   if (Available.length==0)
     return(
-      <View className = {`bg-dark-200 flex-1 items-center pl-4 justify-between`} style={{paddingTop:StatusBar.currentHeight+20}}>
-        <Text className='text-primary font-Handlee text-left pl-5 w-full text-4xl pb-10'>
-          {CurrentCategory}
-        </Text>
-        <View className='mt-64'>
-          <Text className='h-full text-md font-QuickSand text-primary '>
+      <View className = {`bg-stone-100 flex-1 items-center w-full`} >
+        <View className ='pl-4 w-full bg-slate-900 rounded-b-xl pt-5'>
+          <Text className='text-white  font-Handlee text-left pl-5 w-full text-4xl pb-7'>
+            {CurrentCategory}
+          </Text>
+        </View>
+        <View className='mt-64 w-full items-center'>
+          <Text className='h-full w-2/3 text-md font-QuickSand text-slate-900 '>
               Oops, we dont have any {CurrentCategory} available try again some other time
           </Text>
           <Image source={require('../assets/images/Wetfloor.png')} style={{width:100, height:100,resizeMode: 'contain'}} /> 
@@ -25,12 +27,14 @@ const CategoryTab = () => {
     </View>
     )
   return (
-      <SafeAreaView className = {`bg-dark-200 flex-1 items-center pl-4`} style={{paddingTop:StatusBar.currentHeight+20}}>
-        <Text className='text-primary font-Handlee text-left pl-5 w-full text-4xl pb-10'>
-          {CurrentCategory}
-        </Text>
+      <SafeAreaView className = {`bg-stone-100 flex-1 items-center w-full`}>
+        <View className ='pl-4 w-full bg-slate-900 rounded-b-xl pt-5'>
+          <Text className='text-white  font-Handlee text-left pl-5 w-full text-4xl pb-7'>
+            {CurrentCategory}
+          </Text>
+        </View>
+        
           <FlatList
-          style={{borderTopColor:'#FF934F', borderTopWidth:2,borderTopRightRadius:10}}
           data = {Available}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({item})=>{

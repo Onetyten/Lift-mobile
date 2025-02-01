@@ -8,12 +8,12 @@ const Bookmark = () => {
   const {carListings,CurrentCategory,bookmark,setBookmark} = useContext(AppContext)
   if (bookmark.length==0)
   return(
-    <View className = {`bg-dark-200 flex-1 items-center pl-1 justify-between`} style={{paddingTop:15}}>
-      <Text className='text-primary font-Handlee text-left pl-5 w-full text-4xl pb-10'>
+    <View className = {`bg-stone-100 flex-1 items-center justify-between`}>
+      <Text className='text-white bg-slate-900 font-Handlee text-left pl-5 w-full text-4xl pb-4'  style={{paddingTop:15}}>
         Cart
       </Text>
       <View className='mt-64'>
-        <Text className='h-full text-md font-QuickSand text-primary '>
+        <Text className='h-full text-md font-QuickSand text-slate-900 '>
           Your cart is empty right now
         </Text>
       </View>
@@ -21,16 +21,16 @@ const Bookmark = () => {
   </View>
   )
   return (
-      <SafeAreaView className = {`bg-dark-200 flex-1 items-center pl-1 justify-between`} style={{paddingTop:15}}>
-        <View className='flex-row items-start pr-20 pb-4 pl-10'>
-          <Text className='text-primary font-Handlee text-left pl-5 w-full text-4xl pb-4'>
+      <SafeAreaView className = {`bg-stone-100 flex-1 items-center pl-1 justify-between`} >
+        <View className='flex-row items-start pr-20 pb-4 pl-10 bg-slate-900'  style={{paddingTop:15}}>
+          <Text className='text-white  font-Handlee text-left px-5 w-full text-4xl'>
               Cart
           </Text>
           <View>
             <TouchableOpacity onPress={()=>{
               setBookmark([])
             }}>
-              <Text className='text-primary font-Handlee text-left border-primary w-full text-xl p-2 rounded-xl' style={{borderWidth:1,}}>
+              <Text className='text-white font-Handlee text-left border-white w-full text-sm p-2 rounded-md' style={{borderWidth:1,}}>
                 Clear Cart
               </Text>
           </TouchableOpacity>

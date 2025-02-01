@@ -3,60 +3,70 @@ import React from 'react'
 import Categories from '../HomeComponent/Categories'
 import Bestselling from '../HomeComponent/BestSelling'
 import ProfileImg from './icons/Headshot.jpg'
-import HeaderCar from '../../assets/images/sports-car-header.png'
+import HeaderCar from '../../assets/images/sports-car-header2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBell } from '@fortawesome/free-solid-svg-icons/faBell'
 import { faLocationPin } from '@fortawesome/free-solid-svg-icons/faLocationPin'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight'
+import { faSun } from '@fortawesome/free-solid-svg-icons'
 
 
 const Home = () => {
   return (
-   <ScrollView className='bg-dark-200 flex-1'>
-     <SafeAreaView className=' flex-1 items-center pt-6 font-QuickSand
+   <ScrollView className='bg-stone-100 flex-1'>
+     <SafeAreaView className=' flex-1 items-center font-QuickSand
     
     '>
-      <View className='flex-row justify-between items-center px-4 py-6 w-full'>
-        <Image source={ProfileImg} resizeMode='contain' className='h-4 w-5  border-primary border-2 rounded-full' style={{width:50,height:50}}/>
-        <View className='justify-center items-center flex-row gap-1'>
-          <FontAwesomeIcon icon={faLocationPin} size={20} color='#ff934f'/>
-          <Text
-          placeholder='Search' placeholderTextColor='#a4816c' className='text-center text-sm text-primary font-QuickSand'> 
-          Lagos, Ikeja
+      <View className='bg-slate-900 py-6 roundex-b-3xl items-center w-full px-3'>
+        <View className='flex-row justify-between items-center px-4 py-6 w-full'>
+          <Image source={ProfileImg} resizeMode='contain' className='h-4 w-5  border-white border-[1px] rounded-full' style={{width:50,height:50}}/>
+          <View className='justify-center items-center flex-row gap-1'>
+            <FontAwesomeIcon icon={faLocationPin} size={20} color='#ffffff'/>
+            <Text
+            placeholder='Search' placeholderTextColor='#a4816c' className='text-center text-sm text-white font-QuickSand'> 
+            Lagos, Ikeja
+            </Text>
+
+          </View>
+
+          
+          <FontAwesomeIcon icon={faSun} size={20} color='#ffffff'/>
+
+        </View>
+        <TextInput
+          placeholder='Search' placeholderTextColor='#000000' className='w-full  px-4 rounded-full text-sm text-black shadow-stone-700 font-QuickSand bg-white shadow-xs'/>
+
+        {/* tagline    */}
+        <View className='h-36 w-full rounded-3xl mt-7'>
+          <Text className='text-lg p-4 w-4/6 font-QuickSand text-white' >Drive It Your Way: Rent, Share, Explore ...</Text>
+          <View className='flex justify-end flex-row w-full'>
+          <Image source={HeaderCar} className='w-5/6 -top-14 -right-4 ' resizeMode='contain'/>
+          </View>
+        </View>
+
+      </View>
+
+      <View className='mt-16 flex flex-row justify-between w-[90%]'>
+          <Text className='text-black text-xl font-Handlee'>
+            Categories
           </Text>
-
+          <FontAwesomeIcon icon={faArrowRight} size={20} color='#0f172a'/>
         </View>
-
-        
-        <FontAwesomeIcon icon={faBell} size={20} color='#ff934f'/>
-
-      </View>
-      <TextInput
-        placeholder='Search' placeholderTextColor='#a4816c' className='w-[90%] border-primary border-2 px-4 rounded-full text-sm text-primary shadow-xl shadow-primary font-QuickSand'/>
-
-      {/* tagline    */}
-      <View className='h-48 w-[90%] bg-primary rounded-3xl mt-7 overflow-hidden'>
-        <Text className='text-lg p-4 w-4/6 font-QuickSand text-dark-200' >Drive It Your Way: Rent, Share, Explore ...</Text>
-        <View className='flex justify-end flex-row w-full'>
-         <Image source={HeaderCar} className='w-5/6 -top-20 ' resizeMode='contain'/>
-        </View>
-      </View>
-      <View className='mt-7 flex flex-row justify-between w-[90%]'>
-        <Text className='text-primary text-xl font-Handlee'>
-          Categories
-        </Text>
-        <FontAwesomeIcon icon={faArrowRight} size={20} color='#ff934f'/>
-      </View>
 
       <Categories/>
-      <View className='bg-primary w-full my-14' style={{height:1,marginVertical:40}} />
-      <View className='flex flex-row justify-between w-[90%]' style={{marginBottom:5}}>
-        <Text className='text-primary text-xl font-Handlee' >
-        Trending Cars 
-        </Text>
-        <FontAwesomeIcon icon={faArrowRight} size={20} color='#ff934f'/>
+      
+      <View className=' w-full my-6' style={{height:1}} />
+
+      <View className='w-full px-4 py-10 rounded-t-3xl bg-slate-900'>
+        <View className='flex flex-row justify-between w-full' style={{marginBottom:5}}>
+          <Text className='text-white text-xl mb-3 font-Handlee' >
+          Trending Cars 
+          </Text>
+          <FontAwesomeIcon icon={faArrowRight} size={20} color='#ffffff'/>
+        </View>
+        <Bestselling/>
       </View>
-      <Bestselling/>
+
 
       
     

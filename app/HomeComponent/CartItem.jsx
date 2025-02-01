@@ -17,35 +17,36 @@ const CartItem = (props) => {
             <View className='w-28 mx-2 mb-7 object-contain'>
                 <View className='object-contain rounded-md overflow-hidden'>
                     <ImageBackground source={typeof path === 'string'? {uri: path}:path} className='w-full h-28 justify-center items-center bg-primary rounded-2xl bg-blend-multiply'style={{backgroundBlendMode:'multiply'}} >
-                        <View className=' bg-primary w-full h-full opacity-25 absolute'>
+                        <View className=' bg-slate-900 w-full h-full opacity-25 absolute'>
                             
                         </View>
                         <View className='absolute top-2 left-1'>
-                            <Text className=' text-md text-white font-QuickSand'>{name}</Text>
+                            <Text className=' text-sm text-white font-QuickSand'>{name}</Text>
                         </View>
-                        <View className='absolute bottom-2 right-3 flex-row items-center gap-2 '>
-                        <TouchableOpacity className='' onPress={()=>{setBookmark(prevBookmark =>{
-                            setDetailsIndex(id)
-                            const isBookmarked = prevBookmark.some(bookmark=>bookmark.id === carListings[detailsIndex].id)
-                            if(isBookmarked) 
-                            {
-                                return prevBookmark.filter(
-                                    (bookmark) => bookmark.id !== carListings[detailsIndex].id
-                                );
-                            }
-
-                            return prevBookmark
-                        })
-                        }}>
-                            <FontAwesomeIcon icon={faCircleXmark} size={20} color='#dc2626'/>
-                        </TouchableOpacity>
-                        </View>
+                        
                     </ImageBackground>
                 </View>
-                <View className='flex-row justify-between w-full'>
-                    <View className='items-start justify-start flex-col'>
-                        {/* <Text className='w-full mt-3 text-lg text-primary font-QuickSand'>{name}</Text> */}
-                        <Text className='w-full mt-3 text-xs text-primary font-Handlee'>N {price}</Text>
+                <View className='flex-row justify-center w-full'>
+                    <View className='items-center justify-between flex-row w-full'>   
+                            <Text className='mt-3 text-xs text-slate-900 font-Handlee'>N {price}</Text>
+
+                            <TouchableOpacity  onPress={()=>{setBookmark(prevBookmark =>{
+                                setDetailsIndex(id)
+                                const isBookmarked = prevBookmark.some(bookmark=>bookmark.id === carListings[detailsIndex].id)
+                                if(isBookmarked) 
+                                {
+                                    return prevBookmark.filter(
+                                        (bookmark) => bookmark.id !== carListings[detailsIndex].id
+                                    );
+                                }
+
+                                return prevBookmark
+                            })
+                            }}>
+                                <FontAwesomeIcon icon={faCircleXmark} size={20} color='#dc2626'/>
+                            </TouchableOpacity>
+                            {/* <Text className='mt-3 text-xs text-slate-900 font-Handlee'>N {price}</Text> */}
+
                     </View>
                 </View>
 

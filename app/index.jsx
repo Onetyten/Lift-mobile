@@ -16,16 +16,14 @@ export default function Index() {
 
 
   return (
-    <SafeAreaView className="bg-dark-200 flex-1 justify-center items-center">
+    <SafeAreaView className="bg-stone-100 flex-1 justify-center items-center">
       <ScrollView className="w-full h-full">
-        <Text className="text-5xl text-primary font-logam w-full mt-56 text-center">Lift mobile</Text>
-        <Text className="text-2xl text-primary text-center mt-16 font-Handlee">Ride, Share, Earn</Text>
-        <ImageBackground source={require('../assets/images/Homepage car.png')} resizeMode="cover" className="w-full h-full justify-center items-center">
+        <Text className="text-5xl text-black font-logam w-full mt-56 text-center">Lift mobile</Text>
+        <Text className="text-2xl text-black text-center mt-16 font-Handlee">Ride, Share, Earn</Text>
+        <ImageBackground source={require('../assets/images/Homepage car opacity.png')} resizeMode="cover" className="w-full h-full justify-center items-center">
           <View className="top-10">
             <Button title ='Continue with email' handlepress = {()=>{ router.push('/(Tabs)/home') }}/> 
-          </View>
-
-          
+          </View> 
         </ImageBackground>
        
       </ScrollView>

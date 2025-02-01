@@ -5,12 +5,12 @@ const DetailRent = (props) => {
   const {price, openPopUp} = props
   return (
     <View>
-        <View className='flex-row justify-between mx-4 mt-10 items-center p-6 border-primary rounded-lg' style={{borderWidth:1}}>
-            <Text className='text-primary font-Handlee text-2xl'>
+        <View className='flex-row justify-between mx-4 mt-10 items-center p-4 border-slate-900 rounded-lg' style={{borderWidth:1}}>
+            <Text className='text-slate-900 font-Handlee text-2xl'>
             {price}<Text className='text-lg'> / day</Text>
             </Text>
-            <TouchableOpacity className='bg-primary p-4 rounded-full' onPress={openPopUp}>
-              <Text className='text-slate-100 font-QuickSand'>
+            <TouchableOpacity className='bg-slate-900 p-3 rounded-md' onPress={openPopUp}>
+              <Text className='text-slate-100 text-sm font-QuickSand'>
                   Rent Now
               </Text>
             </TouchableOpacity>

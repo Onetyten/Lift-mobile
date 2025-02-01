@@ -23,23 +23,25 @@ const CarDetails = () => {
   const closePopUp = ()=>{setPopUp(false)}
   return (
     <View>
-        <ScrollView className = {`bg-dark-200`}>
-          <View style={{paddingTop:StatusBar.currentHeight}}>
+        <ScrollView className = {`bg-stone-100`}>
+          <View>
+            <View className='bg-slate-900 pb-8 rounded-2xl'>
+              < DetailHeader name = {carListings[detailsIndex].name} />
 
-            < DetailHeader name = {carListings[detailsIndex].name} />
+              <Image source={{uri: carListings[detailsIndex].path}} className='w-full h-80 p-8 justify-center items-center rounded-2xl' style={{marginTop:40}} />
 
-            <Image source={{uri: carListings[detailsIndex].path}} className='w-full h-80 p-8 justify-center items-center bg-primary rounded-2xl bg-blend-multiply' style={{backgroundBlendMode:'multiply',marginTop:40}} />
+              <Text className='text-white font-QuickSand text-xl mt-6 pl-2'>
+                  {carListings[detailsIndex].name.toUpperCase()}
+              </Text>
+            </View>
 
-            <Text className='text-primary font-QuickSand text-xl mt-6 pl-2'>
-                {carListings[detailsIndex].name.toUpperCase()}
-            </Text>
 
               <View className=' rounded-lg mt-10 mx-4 justify-between flex-wrap'>
               <View className='flex-row flex-wrap justify-evenly'>
                 <DetailScroll/>
       
               </View>
-                <Text className='font-QuickSand text-md w-full text-left text-primary mt-6'>
+                <Text className='font-QuickSand text-md w-full text-left text-slate-900 mt-6'>
                     {carListings[2].description}
                 </Text>
 
@@ -60,25 +62,25 @@ const CarDetails = () => {
               animationType="fade"
               transparent= {true}
               visible={popUp} style={{flex:1,justifyContent:'center',alignItems:'center',
-              backgroundColor:'rgba(255, 147, 79, 0.2)'}}>
+              backgroundColor:'rgba(15, 23, 42, 0.6)'}}>
                <SafeAreaView className='flex-1' style={{ backgroundColor: 'rgba(255, 147, 79, 0.2)' }}>
                   <View className='flex-1 justify-end'>
-                    <View className='items-center justify-center bg-primary rounded-2xl mx-2'>
+                    <View className='items-center justify-center bg-slate-900 rounded-2xl mx-2'>
                       <View className='flex-row py-8 gap-2 justify-between px-4 w-full'>
                         <Image source={{uri: carListings[detailsIndex].path}} resizeMode='cover'  className='w-60 h-32 rounded-2xl' />
                         <View className='justify-between'>
-                          <Text className='text-lg text-center text-dark-100 font-QuickSand'>
+                          <Text className='text-lg text-center text-white font-QuickSand'>
                             {carListings[detailsIndex].name}
                           </Text>
-                          <Text className='w-full mt-3 text-md text-dark-100 font-Handlee'>N {carListings[detailsIndex].rentalPricePerDay}</Text>
+                          <Text className='w-full mt-3 text-md text-white font-Handlee'>N {carListings[detailsIndex].rentalPricePerDay}</Text>
                         </View>
                         
                       </View>
                       <TouchableOpacity onPress={()=>{
                         closePopUp()
                         router.push('/Checkout')}}>
-                        <View className='bg-dark-100 w-28 p-4 mb-5 rounded-xl'>
-                          <Text className='text-md text-primary text-center font-QuickSand'>
+                        <View className='bg-white w-28 p-4 mb-5 rounded-xl'>
+                          <Text className='text-md text-slate-900 text-center font-QuickSand'>
                             Checkout
                           </Text>
                         </View>
