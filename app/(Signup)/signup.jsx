@@ -18,9 +18,9 @@ const Signup = () => {
     }
     else{
       try {
-        const user = await createUser(form.userName,form.email,form.password)
-        console.log("User added successfully")
-        setIsLoggedIn(true)
+        // const user = await createUser(form.userName,form.email,form.password)
+        // console.log("User added successfully")
+        // setIsLoggedIn(true)
         router.replace('/(Tabs)/home')
         
         

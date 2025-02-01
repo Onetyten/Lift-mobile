@@ -6,44 +6,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const AppContext = createContext()
 
 const AppProvider = ({children})=>{
-    // const [isLoggedIn,setIsLoggedIn] = useState(true)
     const [user,setUser] = useState(null)
     const [isLoading,setIsLoading] = useState(true)
     const [CurrentCategory,setCurrentCategory] = useState('SUV')
     const [detailsIndex,setDetailsIndex] = useState(0)
     const [bookmark,setBookmark] = useState([])
-
-
-    // useEffect(()=>{
-    //     const saveLogInStatus = async (params) => {
-    //         try {
-    //             await AsyncStorage.setItem('@logInStatus:key',JSON.stringify(isLoggedIn)) 
-    //             console.log(JSON.stringify(isLoggedIn))
-    //         } catch (error) {
-    //             console.log(error)
-    //         } 
-    //     }
-    //     saveLogInStatus()
-
-    // }, [isLoggedIn])
-    
-
-    // useEffect(()=>{
-    //     const retrieveData = async ()=>{
-    //         try {
-    //             const logInStorage = await AsyncStorage.getItem('@logInStatus:key',)
-    //             if (logInStorage != null){
-    //                 setIsLoggedIn(JSON.parse(logInStorage))
-    //                 console.log('loginVal',logInStorage)
-    //             }
-                
-    //         } catch (error) {
-    //             console.log(error)
-    //         }
-    //     }
-    //     retrieveData()
-    // },[])
-
 
     const [form,setForm] = useState({
         userName : '',

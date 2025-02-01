@@ -20,11 +20,11 @@ const Signin = () => {
         }
     else{
       try {
-        const user = await Authenticate(form.email,form.password)  ;
-        setIsLoggedIn(true)
-        // const user = await getCurrentUser()  ;
+        // const user = await Authenticate(form.email,form.password)  ;
+        // setIsLoggedIn(true)
+        // // const user = await getCurrentUser()  ;
         
-        console.log("User logged in")
+        // console.log("User logged in")
         router.replace('/(Tabs)/home')
       } catch (error) {
          Alert.alert("Error",error.message)
