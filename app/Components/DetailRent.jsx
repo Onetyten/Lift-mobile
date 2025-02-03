@@ -1,16 +1,19 @@
 import { View, Text,TouchableOpacity } from 'react-native'
 import React from 'react'
+import { AppContext,AppProvider } from '../Context'
+import { useContext } from 'react'
 
 const DetailRent = (props) => {
+  const{darkMode,setDarkMode} = useContext(AppContext)
   const {price, openPopUp} = props
   return (
     <View>
-        <View className='flex-row justify-between mx-4 mt-10 items-center p-4 border-slate-900 rounded-lg' style={{borderWidth:1}}>
-            <Text className='text-slate-900 font-Handlee text-2xl'>
+        <View className={`flex-row justify-between mx-4 mt-10 items-center p-4 ${darkMode?'border-white':'border-slate-900'}  rounded-lg`} style={{borderWidth:1}}>
+            <Text className={` ${darkMode?'text-white':'text-slate-900'} font-Ubuntubold text-2xl`}>
             {price}<Text className='text-lg'> / day</Text>
             </Text>
-            <TouchableOpacity className='bg-slate-900 p-3 rounded-md' onPress={openPopUp}>
-              <Text className='text-slate-100 text-sm font-QuickSand'>
+            <TouchableOpacity className={`${darkMode?'bg-white':' bg-slate-900 '} p-3 rounded-md`} onPress={openPopUp}>
+              <Text className={`${darkMode?'text-slate-900':'text-slate-100'} text-sm font-Ubunturegular`}>
                   Rent Now
               </Text>
             </TouchableOpacity>

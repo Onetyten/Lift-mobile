@@ -21,14 +21,14 @@ const CartItem = (props) => {
                             
                         </View>
                         <View className='absolute top-2 left-1'>
-                            <Text className=' text-sm text-white font-QuickSand'>{name}</Text>
+                            <Text className=' text-sm text-white font-Ubunturegular'>{name}</Text>
                         </View>
                         
                     </ImageBackground>
                 </View>
                 <View className='flex-row justify-center w-full'>
                     <View className='items-center justify-between flex-row w-full'>   
-                            <Text className='mt-3 text-xs text-slate-900 font-Handlee'>N {price}</Text>
+                            <Text className='mt-3 text-xs text-slate-900 font-Ubunturegular'>N {price}</Text>
 
                             <TouchableOpacity  onPress={()=>{setBookmark(prevBookmark =>{
                                 setDetailsIndex(id)

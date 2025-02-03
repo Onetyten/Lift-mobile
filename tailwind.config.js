@@ -18,14 +18,13 @@ module.exports = {
         },
       },
       fontFamily:{
-        Funnel:["Funnel_Display","sans-serif"],
-        QuickSand:["Quicksand","sans-serif"], 
-        Reddit:["Reddit","sans-serif"],
-        Roboto:["Roboto","sans-serif"], 
-        Handlee:["Handlee","sans-serif"],
-        Annie:["Annie","sans-serif"], 
-        EduAU:["EduAU","sans-serif"], 
-        logam:["logam","sans-serif"], 
+
+        
+        Orbitron:["Orbitron","sans-serif"],
+        Ubuntubold:["Ubuntu-bold","sans-serif"], 
+        Ubunturegular:["Ubuntu-regular","sans-serif"],
+        Ubuntuitalic:["Ubuntu-italic","sans-serif"], 
+        Nunito:["Nunito","sans-serif"]
 
 
         

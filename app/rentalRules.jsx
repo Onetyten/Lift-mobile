@@ -8,21 +8,21 @@ import RuleSnippet from './Components/RuleSnippet.jsx'
 
 
 const rentalRules = () => {
-  const {carListings,detailsIndex,setDetailsIndex} = useContext(AppContext)
+  const {carListings,detailsIndex,setDetailsIndex, darkMode} = useContext(AppContext)
   return (
-    <View className='bg-stone-100 flex-1'>
-          <View className='bg-slate-900 py-8'>
-              <Text className='text-white text-center font-Handlee text-2xl'>
+    <View className={`flex-1 ${darkMode ? 'bg-slate-900' : 'bg-stone-100'}`}>
+          <View className={`py-8 ${darkMode ? 'bg-gray-800' : 'bg-slate-900'}`}>
+              <Text className='text-white text-center font-Ubuntubold text-2xl'>
                 Rules
               </Text>
               <View className='mt-3 py-4 flex-row justify-between border-white rounded-xl mx-3' style={{borderWidth:1}}>
                 <View className='ml-4 flex-row gap-2'>
                   <Image source={typeof carListings[detailsIndex].profilepic === 'string'? {uri: carListings[detailsIndex].profilepic}:carListings[detailsIndex].profilepic} width={80} height={80} resizeMode='cover' className='rounded-full '/>
-                  <Text className='text-white text-xl font-Handlee'>{carListings[detailsIndex].profileName}</Text>
+                  <Text className='text-white text-xl font-Ubuntubold'>{carListings[detailsIndex].profileName}</Text>
                 </View>
                 <View className='mr-8 justify-around'>
-                  <Text className='text-white text-md font-QuickSand'>{carListings[detailsIndex].state} , {carListings[detailsIndex].country}</Text>
-                  <Text className='w-full text-md text-white font-QuickSand'>{carListings[detailsIndex].reviewStore} <FontAwesomeIcon icon={faStar} size={13} color='#ff934f'/></Text>
+                  <Text className='text-white text-md font-Ubunturegular'>{carListings[detailsIndex].state} , {carListings[detailsIndex].country}</Text>
+                  <Text className='w-full text-md text-white font-Ubunturegular'>{carListings[detailsIndex].reviewStore} <FontAwesomeIcon icon={faStar} size={13} color='#ff934f'/></Text>
 
                 </View>
               </View>

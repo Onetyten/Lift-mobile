@@ -5,7 +5,8 @@ import {AppContext,AppProvider} from '../Context.jsx'
 
 
 const CategoriesCards = (props) => {
-    const {CurrentCategory,setCurrentCategory } = useContext(AppContext)
+    const {CurrentCategory,setCurrentCategory,darkMode, setDarkMode  } = useContext(AppContext)
+    
     const {name,path} = props
     const router = useRouter();
 
@@ -19,7 +20,7 @@ const CategoriesCards = (props) => {
             <View className='  w-full h-full opacity-25 absolute'>
             </View>
         </ImageBackground>
-        <Text className='w-full text-center text-md font-QuickSand text-slate-900'>{name}</Text>
+        <Text className={`w-full text-center text-md font-Ubunturegular ${darkMode?'text-white':'text-slate-900'}`}>{name}</Text>
 
     </View>
 </TouchableOpacity>

@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React, { createContext,useEffect,useState } from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Appearance} from 'react-native';
 
 
 const AppContext = createContext()
@@ -17,6 +17,22 @@ const AppProvider = ({children})=>{
         email:'',
         password:'',
     })
+
+    // const [darkMode, setDarkMode] = useState(Appearance.getColorScheme()==='dark')
+    const [darkMode, setDarkMode] = useState(false)
+
+
+// useEffect(() => {
+//   const subscription = Appearance.addChangeListener(({ colorScheme }) => {
+//     setDarkMode(colorScheme === 'dark');
+//   });
+
+//   // Set initial theme
+//   setDarkMode(Appearance.getColorScheme() === 'dark');
+
+//   return () => subscription.remove(); // Cleanup listener on unmount
+// }, []);
+
 
     const [carCategories,setCarCategories]= useState([
         
@@ -1678,7 +1694,7 @@ const AppProvider = ({children})=>{
     ])
 
     return(
-        <AppContext.Provider value={{ carCategories, setCarCategories,carListings,setCarListings,form,setForm,CurrentCategory,setCurrentCategory,detailsIndex,setDetailsIndex,bookmark,setBookmark }}>
+        <AppContext.Provider value={{ carCategories, setCarCategories,carListings,setCarListings,form,setForm,CurrentCategory,setCurrentCategory,detailsIndex,setDetailsIndex,bookmark,setBookmark,darkMode, setDarkMode }}>
             {children}
         </AppContext.Provider>
     )

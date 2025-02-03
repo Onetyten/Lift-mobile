@@ -1,24 +1,27 @@
 import { View, Text,Image } from 'react-native'
-import React from 'react'
+import {React,useContext} from 'react'
+import { AppContext } from '../Context'
+
 
 const Review = (props) => {
+    const {darkMode} = useContext(AppContext)
     const {comments} = props
   return (
     <View>
-        <Text className='text-slate-900 font-Handlee ml-4 mt-7 text-2xl'>
+        <Text className={`${darkMode?'text-white':'text-slate-900'}  font-Ubuntubold ml-4 mt-7 text-xl`}>
             Reviews
         </Text>
 
-        <View className='border-slate-900 ml-4 rounded-lg'  style={{borderWidth:1}} >
+        <View className={`${darkMode?'border-white':'border-slate-900'}   ml-4 rounded-lg`}  style={{borderWidth:1}} >
         {comments.map((item,index)=>{
             return(
             
             <View className='p-4'  key={index}>
             <View className='flex-row items-center'>
                 <Image source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcCuCOisgxyOypyBi-hRYYV2Onv7KVI6QTVA&s'}} style ={{}} width={35} height={35} resizeMode='contain' className='rounded-full '/>
-                <Text className='text-slate-900 font-Handlee ml-4 text-sm'>Anonymous</Text>
+                <Text className={`${darkMode?'text-white':'text-slate-900'}  font-Ubuntubold ml-4 text-sm`}>Anonymous</Text>
             </View>
-                <Text className='text-slate-900 font-QuickSand ml-4 mt-3 text-md' key={index}>{item}</Text>
+                <Text className={`${darkMode?'text-white':'text-slate-900'}  font-Ubunturegular ml-4 mt-3 text-md`} key={index}>{item}</Text>
             </View>
             
             )

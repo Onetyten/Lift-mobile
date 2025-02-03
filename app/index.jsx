@@ -12,17 +12,18 @@ import { useContext } from "react";
 
 
 export default function Index() {
-  const {isLoggedIn,setIsLoggedIn} = useContext(AppContext)
+  const {isLoggedIn,setIsLoggedIn,darkMode, setDarkMode } = useContext(AppContext)
+  console.log(darkMode)
 
 
   return (
-    <SafeAreaView className="bg-stone-100 flex-1 justify-center items-center">
+    <SafeAreaView className={`${darkMode ? "bg-slate-900" : "bg-stone-100"} flex-1 justify-center items-center`}>
       <ScrollView className="w-full h-full">
-        <Text className="text-5xl text-black font-logam w-full mt-56 text-center">Lift mobile</Text>
-        <Text className="text-2xl text-black text-center mt-16 font-Handlee">Ride, Share, Earn</Text>
-        <ImageBackground source={require('../assets/images/Homepage car opacity.png')} resizeMode="cover" className="w-full h-full justify-center items-center">
+        <Text className={`text-5xl ${ darkMode ?"text-white":"text-slate-900"} font-Orbitron w-full mt-56 text-center`}>Lift mobile</Text>
+        <Text className={`text-2xl ${ darkMode ?"text-white":"text-slate-900"} text-center mt-16 font-Ubunturegular`}>Ride, Share, Earn</Text>
+        <ImageBackground source={ darkMode? require('../assets/images/Homepage car.png') : require('../assets/images/Homepage car opacity.png')} resizeMode="cover" className="w-full h-full justify-center items-center">
           <View className="top-10">
-            <Button title ='Continue with email' handlepress = {()=>{ router.push('/(Tabs)/home') }}/> 
+            <Button title ='Continue with email' handlepress = {()=>{ router.push('/(Signup)/signup') }}/> 
           </View> 
         </ImageBackground>
        

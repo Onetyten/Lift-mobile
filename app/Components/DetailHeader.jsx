@@ -17,7 +17,7 @@ const DetailHeader = (props) => {
         </TouchableOpacity>
         
 
-        <Text className='text-white font-QuickSand text-xl'>
+        <Text className='text-white font-Ubunturegular text-xl'>
             {name}
         </Text>
         <TouchableOpacity className='border-[1px] border-white' style={{padding:10,borderRadius:100}} onPress={()=>{

@@ -9,7 +9,7 @@ import {createUser} from '../../lib/appwrite'
 
 
 const Signup = () => {
-  const {form,setForm,isLoggedIn,setIsLoggedIn} = useContext(AppContext)
+  const {form,setForm,isLoggedIn,setIsLoggedIn,darkMode} = useContext(AppContext)
   const [isSubmitting,setIsSubmitting] = useState(false)
   const submit= async()=>{
     if (!form.userName || !form.email || !form.password){
@@ -34,19 +34,19 @@ const Signup = () => {
 
 
   return (
-    <SafeAreaView className='bg-dark-200 h-full w-full'>
+    <SafeAreaView className={`${darkMode?'bg-slate-900':'bg-stone-100'} h-full w-full`}>
       <ScrollView>
         <View className='w-full justify-center h-[85vh]'>
-            <Text className='text-2xl text-dark-100 ml-4 w-full mb-48 top-48'>
-              Create a <Text className='font-logam text-3xl text-primary'>Lift mobile</Text> account
+            <Text className={`${darkMode?'text-white':'text-slate-900'} text-2xl  ml-4 w-full mb-48 top-48`}>
+              Create a <Text className='font-Orbitron text-2xl text-lime-400'>Lift mobile</Text> account
             </Text>
-            <View className='border-2 p-3 m-2 rounded-xl border-primary'>
+            <View className='border-2 p-3 m-2 rounded-xl border-stone-400'>
               <FormField placeholdertext= 'Enter your name' title = 'Username' value ={form.userName} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, userName:e})}/>
 
               <FormField placeholdertext= 'Enter your email' title = 'Email' value ={form.email} keyboardType = 'email-address' handlechangetext={(e)=>setForm({...form, email:e})}/>
 
               <FormField placeholdertext= 'Enter your password' title = 'Password'value ={form.password} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, password:e})}/>
-              {/* <FormField placeholdertext= 'Confirm Password' title = 'Password' value ={form.password} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, password:e})}/> */}
+              <FormField placeholdertext= 'Confirm Password' title = 'Password' value ={form.password} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, password:e})}/>
 
               <View className='w-full flex-row justify-center'>
                 <View className='mt-10 w-28'>
@@ -54,7 +54,7 @@ const Signup = () => {
                 </View>
               </View>
               <View className='mt-10'>
-                <Link href='/(Signup)/signin' className='text-xl underline underline-offset-2 text-center text-primary'>
+                <Link href='/(Signup)/signin' className='text-xl underline underline-offset-2 text-center text-stone-400'>
                   Have an account already?
                 </Link>
               </View>
