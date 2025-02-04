@@ -6,27 +6,67 @@ import Button  from '../Components/Button'
 import { Link, router,Redirect } from 'expo-router'
 import { AppContext,AppProvider } from '../Context'
 import {createUser} from '../../lib/appwrite'
+import axios from 'axios'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 
 
 const Signup = () => {
   const {form,setForm,isLoggedIn,setIsLoggedIn,darkMode} = useContext(AppContext)
   const [isSubmitting,setIsSubmitting] = useState(false)
+  const [confirmPass, setConfirmPass] = useState('')
   const submit= async()=>{
+    if (isSubmitting) return;
+    setIsSubmitting(true)
+
     if (!form.userName || !form.email || !form.password){
-      console.log("not here")
       Alert.alert("Invalid Information","Please fill in the required fields")
+      setIsSubmitting(false);
+      return
     }
+    
+    else if (confirmPass != form.password){
+      Alert.alert("Comfirm your password","Please fill in your registered password in the confirm password field")
+      setIsSubmitting(false);
+      return
+
+    }
+
+    else if (form.password.length<8){
+      Alert.alert("Password too short","The characters in your password must be more than 8 ")
+      setIsSubmitting(false);
+      return
+    }
+    
+
+
     else{
-      try {
-        // const user = await createUser(form.userName,form.email,form.password)
-        // console.log("User added successfully")
-        // setIsLoggedIn(true)
-        router.replace('/(Tabs)/home')
-        
-        
-      } catch (error) {
-        Alert.alert("Error",error.message)
-      }
+        const userData = {
+          name:form.userName,
+          email:form.email,
+          password:form.password
+        }
+        try {
+          const response = await axios.post("http://192.168.43.241:1001/register",userData)
+          console.log(response.data)
+          if (response.data.status == 'ok'){
+            await AsyncStorage.setItem('userData', JSON.stringify(userData));
+            Alert.alert("Registered Successfully", `Welcome ${form.userName}`)
+            router.replace('/(Tabs)/home')
+          }
+          else{
+            Alert.alert(JSON.stringify(response.data))
+          }
+          
+
+        } catch (error) {
+          console.log(error);
+    	    Alert.alert("Error", error.message);
+        }
+        finally{
+          setIsSubmitting(false)
+        }
+
     }
     
     
@@ -46,7 +86,10 @@ const Signup = () => {
               <FormField placeholdertext= 'Enter your email' title = 'Email' value ={form.email} keyboardType = 'email-address' handlechangetext={(e)=>setForm({...form, email:e})}/>
 
               <FormField placeholdertext= 'Enter your password' title = 'Password'value ={form.password} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, password:e})}/>
-              <FormField placeholdertext= 'Confirm Password' title = 'Password' value ={form.password} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, password:e})}/>
+
+              <FormField placeholdertext= 'Confirm Password' title = 'Confirm Password' value ={confirmPass} keyboardType = 'default' handlechangetext={(e)=>{
+                setConfirmPass(e)
+                }}/>
 
               <View className='w-full flex-row justify-center'>
                 <View className='mt-10 w-28'>

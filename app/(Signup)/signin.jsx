@@ -6,6 +6,7 @@ import Button  from '../Components/Button'
 import { Link,Redirect,router } from 'expo-router'
 import { AppContext,AppProvider } from '../Context'
 import {Authenticate,getCurrentUser} from '../../lib/appwrite'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 
@@ -18,14 +19,25 @@ const Signin = () => {
           console.log("not here")
           Alert.alert("Invalid Information","Please fill in the required fields")
         }
+
     else{
       try {
-        // const user = await Authenticate(form.email,form.password)  ;
-        // setIsLoggedIn(true)
-        // // const user = await getCurrentUser()  ;
-        
-        // console.log("User logged in")
+        const response = await fetch("http://192.168.43.241:1001/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email:form.email, password:form.password }),
+      })
+      const data = await response.json()
+      if (data.status === "ok") {
+        await AsyncStorage.setItem("token", data.token)
+        console.log("Login successful", data);
         router.replace('/(Tabs)/home')
+
+    } else {
+        console.log("Login failed", data.data);
+        Alert.alert("Login Failed", data.data);
+    }
+
       } catch (error) {
          Alert.alert("Error",error.message)
       }

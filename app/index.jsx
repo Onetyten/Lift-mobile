@@ -1,8 +1,9 @@
 import { Link,Redirect,router } from "expo-router";
 import { Image, Text, TouchableHighlight, TouchableOpacity, View,SafeAreaView, ScrollView, ImageBackground} from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Button from './Components/Button'
 import { AppContext,AppProvider } from './Context'
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 
 
@@ -13,7 +14,32 @@ import { useContext } from "react";
 
 export default function Index() {
   const {isLoggedIn,setIsLoggedIn,darkMode, setDarkMode } = useContext(AppContext)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   console.log(darkMode)
+
+  useEffect(()=>{
+    const checkAuthentication = async()=>{
+      const token = await AsyncStorage.getItem('token')
+      if (token){
+        setIsAuthenticated(true)
+        console.log("user is already logged in.")
+      }
+      else{
+        console.log('no token found redirect to login')
+      }
+    }
+    const clearUserData = async () => {
+      try {
+        await AsyncStorage.clear(); // Clears all data in AsyncStorage
+        console.log('AsyncStorage has been cleared.');
+      } catch (error) {
+        console.log('Error clearing AsyncStorage:', error);
+      }
+    };
+    // clearUserData()
+    checkAuthentication()
+
+  },[])
 
 
   return (
@@ -23,7 +49,9 @@ export default function Index() {
         <Text className={`text-2xl ${ darkMode ?"text-white":"text-slate-900"} text-center mt-16 font-Ubunturegular`}>Ride, Share, Earn</Text>
         <ImageBackground source={ darkMode? require('../assets/images/Homepage car.png') : require('../assets/images/Homepage car opacity.png')} resizeMode="cover" className="w-full h-full justify-center items-center">
           <View className="top-10">
-            <Button title ='Continue with email' handlepress = {()=>{ router.push('/(Signup)/signup') }}/> 
+            <Button title ='Continue with email' handlepress = {()=>{ 
+              isAuthenticated?router.push('/(Tabs)/home'): router.push('/(Signup)/signup')
+              }}/> 
           </View> 
         </ImageBackground>
        
