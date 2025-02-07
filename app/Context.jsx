@@ -18,20 +18,20 @@ const AppProvider = ({children})=>{
         password:'',
     })
 
-    // const [darkMode, setDarkMode] = useState(Appearance.getColorScheme()==='dark')
-    const [darkMode, setDarkMode] = useState(false)
+    const [darkMode, setDarkMode] = useState(Appearance.getColorScheme()==='dark')
+    // const [darkMode, setDarkMode] = useState(false)
 
 
-// useEffect(() => {
-//   const subscription = Appearance.addChangeListener(({ colorScheme }) => {
-//     setDarkMode(colorScheme === 'dark');
-//   });
+useEffect(() => {
+  const subscription = Appearance.addChangeListener(({ colorScheme }) => {
+    setDarkMode(colorScheme === 'dark');
+  });
 
-//   // Set initial theme
-//   setDarkMode(Appearance.getColorScheme() === 'dark');
+  // Set initial theme
+  setDarkMode(Appearance.getColorScheme() === 'dark');
 
-//   return () => subscription.remove(); // Cleanup listener on unmount
-// }, []);
+  return () => subscription.remove(); // Cleanup listener on unmount
+}, []);
 
 
     const [carCategories,setCarCategories]= useState([
