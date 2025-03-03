@@ -1,14 +1,16 @@
 import { View, Text, Image,ScrollView} from 'react-native'
 import React,{useContext} from 'react'
-import {AppContext,AppProvider} from './Context.jsx'
+import {AppContext,AppProvider} from './Context'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import RuleSnippet from './Components/RuleSnippet.jsx'
+import RuleSnippet from './Components/RuleSnippet'
 
 
 
 const rentalRules = () => {
-  const {carListings,detailsIndex,setDetailsIndex, darkMode} = useContext(AppContext)
+  const context = useContext(AppContext);
+  if (!context) return null;
+  const {carListings,detailsIndex,darkMode} = context
   return (
     <View className={`flex-1 ${darkMode ? 'bg-slate-900' : 'bg-stone-100'}`}>
           <View className={`py-8 ${darkMode ? 'bg-gray-800' : 'bg-slate-900'}`}>

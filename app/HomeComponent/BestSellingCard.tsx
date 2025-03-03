@@ -8,11 +8,22 @@ import {BlurView} from 'expo-blur'
 
 import { StarRatingDisplay } from 'react-native-star-rating-widget';
 import { router } from 'expo-router'
-import {AppContext,AppProvider} from '../Context.jsx'
+import {AppContext,AppProvider} from '../Context'
 
 
-const BestSellingCard = (props) => {
-    const {carListings,detailsIndex,setDetailsIndex} = useContext(AppContext)
+interface propItem {
+    name:string
+    path:string
+    price:number
+    score:number
+    category:string
+    id:number
+}
+
+const BestSellingCard:React.FC<propItem> = (props) => {
+    const context = useContext(AppContext);
+        if (!context) return null;
+    const {carListings,detailsIndex,setDetailsIndex} = context
     const {name,path,price,score,category,id} = props
     return (
         <TouchableOpacity onPress={()=>{

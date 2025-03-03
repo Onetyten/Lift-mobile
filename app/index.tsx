@@ -13,7 +13,9 @@ import { useContext, useEffect, useState } from "react";
 
 
 export default function Index() {
-  const {isLoggedIn,setIsLoggedIn,darkMode, setDarkMode } = useContext(AppContext)
+  const context = useContext(AppContext);
+  if (!context) return null;
+  const {darkMode } = context
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   console.log(darkMode)
 

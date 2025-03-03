@@ -3,8 +3,17 @@ import React from 'react'
 import { AppContext,AppProvider } from '../Context'
 import { useContext } from 'react'
 
-const DetailRent = (props) => {
-  const{darkMode,setDarkMode} = useContext(AppContext)
+interface propItem{
+  price:number
+  openPopUp:()=>void
+}
+
+const DetailRent:React.FC<propItem> = (props) => {
+  const context = useContext(AppContext);
+    if (!context) {
+        return null;
+    }
+  const{darkMode,setDarkMode} = context 
   const {price, openPopUp} = props
   return (
     <View>

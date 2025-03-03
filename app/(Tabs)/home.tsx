@@ -15,7 +15,7 @@ import { useContext } from "react";
 
 
 
-const Home = () => {
+const Home:React.FC = () => {
   const {darkMode, setDarkMode } = useContext(AppContext)
   return (
     <ScrollView className={` flex-1`}>
@@ -34,7 +34,7 @@ const Home = () => {
 
           <TouchableOpacity onPress={()=>{
             console.log('switch')
-            setDarkMode(prevMode => !prevMode)}
+            setDarkMode((prevMode: boolean) => !prevMode)}
             }>
               <FontAwesomeIcon icon={faSun} size={20} color='#ffffff'/> 
           </TouchableOpacity>
@@ -82,7 +82,9 @@ const Home = () => {
 
         
     </SafeAreaView>
-    <StatusBar backgroundColor='#151415' style='light'/>
+    <StatusBar backgroundColor='#151415'
+    //  barStyle={'light'}
+     />
    </ScrollView>
   )
 }

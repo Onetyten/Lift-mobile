@@ -3,7 +3,7 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Stack } from 'expo-router'
 
-const AcctLayout = () => {
+const AcctLayout:React.FC = () => {
   return (
     <>
       <Stack>

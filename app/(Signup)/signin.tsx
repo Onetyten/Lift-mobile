@@ -5,7 +5,6 @@ import FormField from '../Components/FormField'
 import Button  from '../Components/Button'
 import { Link,Redirect,router } from 'expo-router'
 import { AppContext,AppProvider } from '../Context'
-import {Authenticate,getCurrentUser} from '../../lib/appwrite'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
@@ -38,8 +37,14 @@ const Signin = () => {
         Alert.alert("Login Failed", data.data);
     }
 
-      } catch (error) {
-         Alert.alert("Error",error.message)
+      } catch (error: unknown) {
+         if (error instanceof Error){
+          Alert.alert("Error",error.message)
+         }
+         else{
+          Alert.alert("Error","Error unknown Reload the app")
+         }
+         
       }
     }
   }
@@ -54,8 +59,8 @@ const Signin = () => {
               Log in to <Text className={`font-Orbitron text-2xl ${darkMode?'text-lime-300':'text-lime-500'} `}>Lift mobile</Text>
             </Text>
             <View className='border-2 p-3 m-2 rounded-xl border-stone-400'>
-              <FormField placeholdertext= 'Enter your email' title = 'Email' value ={form.email} keyboardType = 'email-address' handlechangetext={(e)=>setForm({...form, email:e})}/>
-              <FormField placeholdertext= 'Enter your password' title = 'Password'value ={form.password} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, password:e})} />
+              <FormField placeholdertext= 'Enter your email' title = 'Email' value ={form.email} keyboardType = 'email-address' handlechangetext={(e:string)=>setForm({...form, email:e})}/>
+              <FormField placeholdertext= 'Enter your password' title = 'Password'value ={form.password} keyboardType = 'default' handlechangetext={(e:string)=>setForm({...form, password:e})} />
               <View className='w-full flex-row justify-center'>
                 <View className='mt-10 w-28'>
                   <Button title ='Sign In' handlepress = {submit}/>

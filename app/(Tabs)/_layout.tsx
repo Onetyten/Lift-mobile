@@ -1,4 +1,4 @@
-import { View, Text,Image } from 'react-native'
+import { View, Text,Image,ImageSourcePropType } from 'react-native'
 import React from 'react'
 import { Tabs,Redirect } from 'expo-router'
 import HomeIcon from './icons/home.png'
@@ -7,14 +7,20 @@ import BookmarkIcon from './icons/Cart.png'
 import CreateIcon from './icons/plus.png'
 
 
+interface TabIconProps {
+  icon: ImageSourcePropType
+  color: string
+  name: string
+  focused: boolean
+}
 
 
-const TabIcon = ({icon,color,name,focused}) => {
+
+
+const TabIcon:React.FC<TabIconProps> = ({icon,color,name,focused}) => {
   return (
     <View className='items-center justify-center gap-2'>
       <Image source={icon} resizeMode='contain' tintColor={color}  className='w-6 h-6'/>
-
-
     </View>
   )
 }

@@ -1,14 +1,14 @@
 import { View, Text, StatusBar, ScrollView, TouchableOpacity ,Image, Modal, SafeAreaView } from 'react-native'
 import React,{useContext,useState} from 'react'
-import {AppContext,AppProvider} from './Context.jsx'
+import {AppContext,CarListing } from './Context'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons/faArrowLeft'
 import { router } from 'expo-router';
-import DetailHeader from './Components/DetailHeader.jsx';
-import DetailProfile from './Components/DetailProfile.jsx';
-import DetailScroll from './Components/DetailScroll.jsx';
-import DetailRent from './Components/DetailRent.jsx';
-import Review from './Components/Review.jsx';
+import DetailHeader from './Components/DetailHeader';
+import DetailProfile from './Components/DetailProfile';
+import DetailScroll from './Components/DetailScroll';
+import DetailRent from './Components/DetailRent';
+import Review from './Components/Review';
 
 
 
@@ -17,17 +17,22 @@ import Review from './Components/Review.jsx';
 
 
 const CarDetails = () => {
-  const {carListings,CurrentCategory,detailsIndex,setDetailsIndex,darkMode, setDarkMode} = useContext(AppContext)
+  const context = useContext(AppContext);
+  if (!context) return null;
+  const {carListings,detailsIndex,darkMode} = context
   const [popUp,setPopUp] = useState(false)
   const openPopUp = ()=>{setPopUp(true)}
   const closePopUp = ()=>{setPopUp(false)}
+  if (!carListings || carListings.length === 0 || detailsIndex < 0 || detailsIndex >= carListings.length) {
+    return <Text>Car details not found.</Text>; // Or some other error handling
+  }
   return (
     <View>
         
         <ScrollView className = {`${darkMode? 'bg-slate-900':'bg-stone-100'}`}>
           <View>
             <View className='bg-slate-900 pb-8 rounded-2xl'>
-              < DetailHeader name = {carListings[detailsIndex].name} />
+              <DetailHeader name={carListings[detailsIndex].name} carListings={carListings} detailsIndex={detailsIndex} />
 
               <Image source={{uri: carListings[detailsIndex].path}} className='w-full h-80 p-8 justify-center items-center rounded-2xl' style={{marginTop:40}} />
 

@@ -1,10 +1,19 @@
 import { View, Text,Image } from 'react-native'
-import {React,useContext} from 'react'
+import React,{useContext} from 'react'
 import { AppContext } from '../Context'
 
+interface ReviewProps {
+    comments: string[];
+  }
+  
 
-const Review = (props) => {
-    const {darkMode} = useContext(AppContext)
+const Review:React.FC<ReviewProps> = (props) => {
+    const context = useContext(AppContext);
+
+    if (!context) {
+        return null;
+    }
+    const {darkMode} = context
     const {comments} = props
   return (
     <View>

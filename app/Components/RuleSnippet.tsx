@@ -3,8 +3,16 @@ import React from 'react';
 import { useContext } from 'react';
 import { AppContext } from '../Context';
 
-const RuleSnippet = (props) => {
-    const { darkMode} = useContext(AppContext)
+interface propItem{
+    Header:string
+    rules:string[]
+    intro:string
+}
+
+const RuleSnippet:React.FC<propItem> = (props) => {
+    const context = useContext(AppContext);
+    if (!context) return null; 
+    const { darkMode} = context
     const { Header, rules, intro } = props; // Receive darkMode prop
 
     return (
@@ -19,7 +27,7 @@ const RuleSnippet = (props) => {
                     {intro}
                 </Text>
                 <View className="pl-14">
-                    {rules.map((item, index) => (
+                    {rules.map((item:string, index:number) => (
                         <Text
                             className={`ml-14 mt-5 text-sm font-Ubunturegular ${darkMode ? 'text-gray-400' : 'text-slate-900'}`} 
                             key={index}

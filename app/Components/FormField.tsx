@@ -1,14 +1,23 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, KeyboardTypeOptions } from 'react-native'
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faEye} from '@fortawesome/free-solid-svg-icons/faEye'
 import { faEyeSlash} from '@fortawesome/free-solid-svg-icons/faEyeSlash'
 
+interface propItem{
+  placeholdertext:string
+  title:string
+  keyboardType:KeyboardTypeOptions
+  handlechangetext:()=>void
+  darkMode:boolean
 
-const FormField = (props) => {
+
+}
+
+const FormField:React.FC<propItem> = (props) => {
     const[active,setactive] = useState(false)
     const[showPassword,setShowPassword] = useState(true)
-    const {placeholdertext,title,value,keyboardType,handlechangetext,darkMode} = props
+    const {placeholdertext,title,keyboardType,handlechangetext,darkMode} = props
     const[passwordval,setPasswordVal] = useState(false)
 
     

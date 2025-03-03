@@ -5,7 +5,6 @@ import FormField from '../Components/FormField'
 import Button  from '../Components/Button'
 import { Link, router,Redirect } from 'expo-router'
 import { AppContext,AppProvider } from '../Context'
-import {createUser} from '../../lib/appwrite'
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -59,9 +58,16 @@ const Signup = () => {
           }
           
 
-        } catch (error) {
-          console.log(error);
-    	    Alert.alert("Error", error.message);
+        } catch (error:unknown) {
+          if (error instanceof Error){
+            console.log(error);
+    	      Alert.alert("Error", error.message);
+          }
+          else{
+            console.log(error);
+    	      Alert.alert("Error", "Error unknown Reload the app");
+          }
+          
         }
         finally{
           setIsSubmitting(false)
@@ -81,13 +87,13 @@ const Signup = () => {
               Create a <Text className='font-Orbitron text-2xl text-lime-400'>Lift mobile</Text> account
             </Text>
             <View className='border-2 p-3 m-2 rounded-xl border-stone-400'>
-              <FormField placeholdertext= 'Enter your name' title = 'Username' value ={form.userName} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, userName:e})}/>
+              <FormField placeholdertext= 'Enter your name' title = 'Username' value ={form.userName} keyboardType = 'default' handlechangetext={(e:string)=>setForm({...form, userName:e})}/>
 
-              <FormField placeholdertext= 'Enter your email' title = 'Email' value ={form.email} keyboardType = 'email-address' handlechangetext={(e)=>setForm({...form, email:e})}/>
+              <FormField placeholdertext= 'Enter your email' title = 'Email' value ={form.email} keyboardType = 'email-address' handlechangetext={(e:string)=>setForm({...form, email:e})}/>
 
-              <FormField placeholdertext= 'Enter your password' title = 'Password'value ={form.password} keyboardType = 'default' handlechangetext={(e)=>setForm({...form, password:e})}/>
+              <FormField placeholdertext= 'Enter your password' title = 'Password'value ={form.password} keyboardType = 'default' handlechangetext={(e:string)=>setForm({...form, password:e})}/>
 
-              <FormField placeholdertext= 'Confirm Password' title = 'Confirm Password' value ={confirmPass} keyboardType = 'default' handlechangetext={(e)=>{
+              <FormField placeholdertext= 'Confirm Password' title = 'Confirm Password' value ={confirmPass} keyboardType = 'default' handlechangetext={(e:string)=>{
                 setConfirmPass(e)
                 }}/>
 

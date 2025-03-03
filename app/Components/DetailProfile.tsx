@@ -1,6 +1,6 @@
 import { View, Text, ScrollView,Image, TouchableOpacity } from 'react-native'
 import React ,{useContext} from 'react'
-import {AppContext,AppProvider} from '../Context.jsx'
+import {AppContext,AppProvider} from '../Context'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
 import { faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight'
@@ -8,7 +8,9 @@ import { router } from 'expo-router'
 
 
 const DetailProfile = () => {
-    const {carListings,detailsIndex,darkMode} = useContext(AppContext)
+    const context = useContext(AppContext)
+    if (!context) return null
+    const {carListings,detailsIndex,darkMode} = context
   return (
     <View>
            <View className ={`bg-slate-900 ${darkMode?'border-[1px]':'border-0'} border-white mt-10 mb-5 h-36 mx-4 rounded-xl gap-4 p-2`}>

@@ -1,9 +1,14 @@
 import { View, Text, Image, TouchableOpacity,ScrollView } from 'react-native'
 import React ,{useContext} from 'react'
-import {AppContext,AppProvider} from '../Context.jsx'
+import {AppContext,AppProvider} from '../Context'
 
 const DetailScroll = () => {
-  const {carListings,CurrentCategory,detailsIndex,setDetailsIndex,darkMode, setDarkMode} = useContext(AppContext)
+  const context = useContext(AppContext);
+
+    if (!context) {
+        return null;
+    }
+  const {carListings,detailsIndex,darkMode} = context
   return (
     <View>
         <Text className={`${darkMode?'text-white':'text-slate-900'} font-Ubunturegular`}>

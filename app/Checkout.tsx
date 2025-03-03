@@ -1,10 +1,11 @@
 import { View, Text, SafeAreaView, ScrollView,TextInput, Image, TouchableOpacity } from 'react-native';
 import React, { useContext } from 'react';
-import { AppContext } from './Context.jsx';
-import FormField from './Components/FormField';
+import { AppContext } from './Context';
 
 const Checkout = () => {
-    const { carListings, detailsIndex, darkMode } = useContext(AppContext);
+    const context = useContext(AppContext);
+    if (!context) return null;
+    const { carListings, detailsIndex, darkMode } = context;
     const shipping = 2500;
 
     return (

@@ -1,11 +1,25 @@
-import { View, Text, SafeAreaView,ScrollView,FlatList,StatusBar, Image, TouchableOpacity } from 'react-native'
-import React, { useContext, useState } from 'react'
-import {AppContext,AppProvider} from '../Context.jsx'
-import BestSellingCard from '../HomeComponent/BestSellingCard.jsx'
-import CartItem from '../HomeComponent/CartItem.jsx'
+import { View, Text, SafeAreaView,ScrollView, TouchableOpacity } from 'react-native'
+import React, { useContext, } from 'react'
+import {AppContext,CarListing} from '../Context'
+import CartItem from '../HomeComponent/CartItem'
 
-const Bookmark = () => {
-  const {carListings,CurrentCategory,bookmark,setBookmark,darkMode} = useContext(AppContext)
+interface BookmarkItem{
+  id:number
+  name:string
+  path:string
+  rentalPricePerDay: number;
+  reviewStore: number;
+  category: string;
+}
+
+const Bookmark:React.FC = () => {
+  const context = useContext(AppContext);
+
+  if (!context) {
+    return null; // Or render an error message
+  }
+
+  const { bookmark, setBookmark, darkMode } = context;
   if (bookmark.length==0)
   return(
     <View className = {`${darkMode?'bg-slate-900':'bg-stone-100'} flex-1 items-center justify-between`}>
@@ -38,7 +52,7 @@ const Bookmark = () => {
         </View>
         <ScrollView className='mt-6'>
           <View className='flex-row flex-wrap justify-start mb-8'>
-            {bookmark.map((item)=>{
+            {bookmark.map((item:CarListing)=>{
               return(
                 <View key={item.id}>
                   <CartItem name = {item.name} path = {item.path} price = {item.rentalPricePerDay} score ={item.reviewStore} category = {item.category} id = {item.id}/>

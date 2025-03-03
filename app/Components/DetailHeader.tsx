@@ -4,10 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons/faArrowLeft'
 import { faCartShopping} from '@fortawesome/free-solid-svg-icons/faCartShopping'
 import { router } from 'expo-router';
-import { AppContext,AppProvider } from '../Context';
+import { AppContext,CarListing } from '../Context';
 
-const DetailHeader = (props) => {
-    const {carListings,detailsIndex,bookmark,setBookmark} = useContext(AppContext)
+interface propItems{
+    carListings:Array<object>
+    detailsIndex:number
+    name:string
+}
+
+
+
+const DetailHeader:React.FC<propItems> = (props) => {
+    const context = useContext(AppContext);
+
+    if (!context) {
+        return null; // Or render an error message
+    }
+    const { carListings, detailsIndex, setBookmark } = context;
     const {name} = props
   return (
     <View className='bg-slate-900' style={{paddingTop:StatusBar.currentHeight}}>
@@ -21,8 +34,8 @@ const DetailHeader = (props) => {
             {name}
         </Text>
         <TouchableOpacity className='border-[1px] border-white' style={{padding:10,borderRadius:100}} onPress={()=>{
-            setBookmark(prevBookmark =>{
-                if (!prevBookmark.some(bookmark=>bookmark.id === carListings[detailsIndex].id))
+            setBookmark((prevBookmark:CarListing[]) =>{
+                if (!prevBookmark.some((bookmark:CarListing)=>bookmark.id === carListings[detailsIndex].id))
                 {return[...prevBookmark ,carListings[detailsIndex]]}
                 else{
                     Alert.alert("Added to cart","The vehicle selected has already been added to cart previously")

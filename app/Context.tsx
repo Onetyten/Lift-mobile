@@ -1,16 +1,73 @@
-import { View, Text } from 'react-native'
-import React, { createContext,useEffect,useState } from 'react'
+import { View, Text, ImageSourcePropType } from 'react-native'
+import React, { createContext,useEffect,useState,Dispatch, SetStateAction ,ReactNode} from 'react'
 import {Appearance} from 'react-native';
 
 
-const AppContext = createContext()
+export interface CarListing {
+    id: number;
+    name: string;
+    path: string;
+    rentalPricePerDay: number;
+    reviewStore: number;
+    category: string;
+    state: string;
+    country: string;
+    manufactureYear: string;
+    trending: boolean;
+    description:string;
+    acceleration: string;
+    engineSize: string;
+    electric: boolean;
+    horsePower: string;
+    profileName: string;
+    profilepic:string;
+    comments: string[];
+    yearsSpent: number;
+  }
 
-const AppProvider = ({children})=>{
+
+  export interface FormState {
+    userName: string;
+    email: string;
+    password: string;
+  }
+  
+  
+  export interface CarCategories{
+    name:string
+    path:ImageSourcePropType
+  }
+
+
+  export interface AppContextType {
+    carListings: CarListing[];
+    setCarListings:Dispatch<SetStateAction<CarListing[]>>
+    carCategories: CarCategories[];
+    setCarCategories:Dispatch<SetStateAction<CarCategories[]>>
+    bookmark: CarListing[];
+    form: FormState; // Use the FormState interface
+    setForm: Dispatch<SetStateAction<FormState>>;
+    setBookmark: Dispatch<SetStateAction<CarListing[]>>;
+    darkMode: boolean;
+    setDarkMode: Dispatch<SetStateAction<boolean>>;
+    detailsIndex: number;
+    setDetailsIndex: Dispatch<SetStateAction<number>>;
+    CurrentCategory: string;
+    setCurrentCategory: Dispatch<SetStateAction<string>>;
+  }
+
+  interface AppProviderProps {
+    children?: ReactNode;
+  }
+
+const AppContext = createContext<AppContextType | undefined>(undefined);
+
+const AppProvider: React.FC<AppProviderProps> = ({children})=>{
     const [user,setUser] = useState(null)
     const [isLoading,setIsLoading] = useState(true)
     const [CurrentCategory,setCurrentCategory] = useState('SUV')
     const [detailsIndex,setDetailsIndex] = useState(0)
-    const [bookmark,setBookmark] = useState([])
+    const [bookmark,setBookmark] = useState<CarListing[]>([])
 
     const [form,setForm] = useState({
         userName : '',
@@ -122,12 +179,12 @@ useEffect(() => {
             horsePower: '190 hp',
             profileName: 'PH Adventures',
             profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZVlXV_LFBRNGzcLiK1aBjW10AYVxDDin_g&s" ,
-            reviewScore: 4.7,
+            reviewStore: 4.7,
             comments: [
                 'Spacious and great for road trips!',
                 'Handled well even on rough roads.',
             ],
-            yearsOnApp: 3
+            yearsSpent: 3
         },
         {
             id:1,
@@ -1563,12 +1620,12 @@ useEffect(() => {
             horsePower: '181 hp',
             profileName: 'Enugu Rides',
             profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUri2vJ0ema1xsd0RuT5cfkwkmwJHtECxwEw&s" ,
-            reviewScore: 4.5,
+            reviewStore: 4.5,
             comments: [
                 'Smooth ride and excellent fuel efficiency!',
                 'Perfect for a weekend getaway, loved it.',
             ],
-            yearsOnApp: 3
+            yearsSpent: 3
         },
         {
             id:69,
@@ -1587,12 +1644,12 @@ useEffect(() => {
             horsePower: '184 hp',
             profileName: 'Benin Motors',
             profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZp-HDqWt6nmzcjUYXPUkrvIND34aaBP9q1Q&s" ,
-            reviewScore: 4.7,
+            reviewStore: 4.7,
             comments: [
                 'Very spacious and comfortable for family trips.',
                 'The handling was superb, great experience!',
             ],
-            yearsOnApp: 5
+            yearsSpent: 5
         },
         {
             id:70,
@@ -1611,12 +1668,12 @@ useEffect(() => {
             horsePower: '255 hp',
             profileName: 'Lagos Luxury Rentals',
             profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTha73ctLka0j9eA_kbHpkdeRlWNt6qB4EfDg&s" ,
-            reviewScore: 4.9,
+            reviewStore: 4.9,
             comments: [
                 'Incredible luxury and smooth performance!',
                 'The car made my trip feel first-class.',
             ],
-            yearsOnApp: 4
+            yearsSpent: 4
         },
         {
             id:71,
@@ -1635,12 +1692,12 @@ useEffect(() => {
             horsePower: '355 hp',
             profileName: 'Abuja Auto Rentals',
             profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSprhQEMC7YKQR9TI5IVMUuiWMUC9_ljjwFog&s" ,
-            reviewScore: 4.6,
+            reviewStore: 4.6,
             comments: [
                 'Great for moving heavy loads with ease!',
                 'The truck is a powerhouse and very reliable.',
             ],
-            yearsOnApp: 2
+            yearsSpent: 2
         },
         {
             id:72,
@@ -1659,12 +1716,12 @@ useEffect(() => {
             horsePower: '203 hp',
             profileName: 'Ibadan Drives',
             profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdVvISXpVdcX-Je1SQVVZ0Fqt86zJ8l2pH4A&s" ,
-            reviewScore: 4.5,
+            reviewStore: 4.5,
             comments: [
                 'Super comfortable and very economical!',
                 'Had a great trip with this reliable SUV.',
             ],
-            yearsOnApp: 3
+            yearsSpent: 3
         },
         {
             id:73,
@@ -1683,12 +1740,12 @@ useEffect(() => {
             horsePower: '384 hp',
             profileName: 'Green Lagos Rentals',
             profilepic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw0r3FcnUJoVOt1gf95mchmIUf-9Q-SXZ7qQ&s" ,
-            reviewScore: 4.9,
+            reviewStore: 4.9,
             comments: [
                 'Amazing acceleration and futuristic features!',
                 'Loved the autopilot feature, very smooth ride.',
             ],
-            yearsOnApp: 1
+            yearsSpent: 1
         }
 
     ])
