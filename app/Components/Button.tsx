@@ -13,7 +13,7 @@ const Button:React.FC<PropItems> = (props) => {
     const {title,handlepress} = props
   return (
     <TouchableOpacity onPress={handlepress}>
-              <Text className="text-xl p-3 px-4 text-center rounded-md font-Handlee bg-stone-400 font-extrabold w-full">   
+              <Text className="text-xl p-3 px-4 text-center rounded-sm bg-primary font-Inter-regular w-full">   
                {title}
               </Text>
     </TouchableOpacity> 

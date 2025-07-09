@@ -10,11 +10,14 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded,error] = useFonts({
-    "Orbitron" : require("../assets/fonts/Orbitron/Orbitron-VariableFont_wght.ttf"),
-    "Ubuntu-bold" : require("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf"),
-    "Ubuntu-regular" : require("../assets/fonts/Ubuntu/Ubuntu-Regular.ttf"),
-    "Ubuntu-italic" : require("../assets/fonts/Ubuntu/Ubuntu-Italic.ttf"),
-    "Nunito" : require("../assets/fonts/Nunito/Nunito-VariableFont_wght.ttf"),
+    
+    "ZenDots" : require("@/assets/fonts/Zen_Dots/ZenDots-Regular.ttf"),
+    "Inter-bold" : require("@/assets/fonts/Inter/static/Inter_18pt-Bold.ttf"),
+    "Inter-semibold" : require("@/assets/fonts/Inter/static/Inter_18pt-SemiBold.ttf"),
+    "Inter-medium" : require("@/assets/fonts/Inter/static/Inter_18pt-Medium.ttf"),
+    "Inter-regular" : require("@/assets/fonts/Inter/static/Inter_28pt-Regular.ttf"),
+    "Inter-italic" : require("@/assets/fonts/Inter/static/Inter_28pt-Italic.ttf"),
+    "Inter-light" : require("@/assets/fonts/Inter/static/Inter_18pt-Light.ttf"),
 
    
   }) 

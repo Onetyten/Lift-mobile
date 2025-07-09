@@ -45,18 +45,25 @@ export default function Index() {
 
 
   return (
-    <SafeAreaView className={`${darkMode ? "bg-slate-900" : "bg-stone-100"} flex-1 justify-center items-center`}>
+    <SafeAreaView className={`${darkMode ? "bg-midnightBlue" : "bg-white"} flex-1 justify-center items-center`}>
       <ScrollView className="w-full h-full">
-        <Text className={`text-5xl ${ darkMode ?"text-white":"text-slate-900"} font-Orbitron w-full mt-56 text-center`}>Lift mobile</Text>
-        <Text className={`text-2xl ${ darkMode ?"text-white":"text-slate-900"} text-center mt-16 font-Ubunturegular`}>Ride, Share, Earn</Text>
-        <ImageBackground source={ darkMode? require('../assets/images/Homepage car.png') : require('../assets/images/Homepage car opacity.png')} resizeMode="cover" className="w-full h-full justify-center items-center">
-          <View className="top-10">
-            <Button title ='Continue with email' handlepress = {()=>{ 
-              isAuthenticated?router.push('/(Tabs)/home'): router.push('/(Signup)/signup')
-              }}/> 
-          </View> 
-        </ImageBackground>
-       
+          <View className="w-screen h-screen flex-1 justify-center items-center">
+            <View className="w-full flex-row justify-center items-center gap-6 flex-1 mt-[60%]">
+              <Image source={require('@/assets/logo.png')} className="w-16 h-16 object-contain flex-row justify-center items-center"/>
+              <Text className={`text-4xl ${ darkMode ?"text-primary":"text-midnightBlue"} font-ZenDots text-center`}>LIFT MOBILE</Text>
+            </View>
+          
+
+
+
+            <ImageBackground source={ darkMode? require('../assets/images/Homepage car.png') : require('../assets/images/Homepage car opacity.png')} resizeMode="contain" className="w-full h-[50%] justify-center items-center" >
+              <View className="top-10 w-[50%]">
+                <Button title ='Continue' handlepress = {()=>{ 
+                  isAuthenticated?router.push('/(Tabs)/home'): router.push('/(Signup)/signup')
+                  }}/> 
+              </View> 
+            </ImageBackground>
+          </View>
       </ScrollView>
 
       
