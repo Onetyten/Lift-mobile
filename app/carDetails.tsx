@@ -1,6 +1,6 @@
 import { View, Text, StatusBar, ScrollView, TouchableOpacity ,Image, Modal, SafeAreaView } from 'react-native'
 import React,{useContext,useState} from 'react'
-import {AppContext,CarListing } from './Context'
+import {AppContext,CarListing } from '../provider/Context'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons/faArrowLeft'
 import { router } from 'expo-router';

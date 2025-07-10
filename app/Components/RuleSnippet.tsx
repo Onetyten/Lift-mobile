@@ -1,7 +1,7 @@
 import { View, Text} from 'react-native';
 import React from 'react';
 import { useContext } from 'react';
-import { AppContext } from '../Context';
+import { AppContext } from '../../provider/Context';
 
 interface propItem{
     Header:string

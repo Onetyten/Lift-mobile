@@ -1,6 +1,6 @@
 import { View, Text, Image,ScrollView} from 'react-native'
 import React,{useContext} from 'react'
-import {AppContext,AppProvider} from './Context'
+import {AppContext,AppProvider} from '../provider/Context'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import RuleSnippet from './Components/RuleSnippet'

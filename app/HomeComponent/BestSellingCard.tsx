@@ -8,7 +8,7 @@ import {BlurView} from 'expo-blur'
 
 import { StarRatingDisplay } from 'react-native-star-rating-widget';
 import { router } from 'expo-router'
-import {AppContext,AppProvider} from '../Context'
+import {AppContext,AppProvider} from '../../provider/Context'
 
 
 interface propItem {

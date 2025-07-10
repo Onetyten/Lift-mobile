@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar'
 import FormField from '../Components/FormField'
 import Button  from '../Components/Button'
 import { Link,Redirect,router } from 'expo-router'
-import { AppContext,AppProvider } from '../Context'
+import { AppContext,AppProvider } from '../../provider/Context'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Fontisto from '@expo/vector-icons/Fontisto';

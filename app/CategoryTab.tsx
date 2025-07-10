@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView, FlatList, Image } from 'react-native';
 import React, { useContext } from 'react';
-import { AppContext, CarListing } from './Context';
+import { AppContext, CarListing } from '../provider/Context';
 import BestSellingCard from './HomeComponent/BestSellingCard';
 
 const CategoryTab = () => {

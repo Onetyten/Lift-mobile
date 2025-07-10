@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar'
 import FormField from '../Components/FormField'
 import Button  from '../Components/Button'
 import { Link, router,Redirect } from 'expo-router'
-import { AppContext,AppProvider } from '../Context'
+import { AppContext,AppProvider } from '../../provider/Context'
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
@@ -76,7 +76,7 @@ const Signup = () => {
         }
 
     }
-    
+    a
     
   }
 

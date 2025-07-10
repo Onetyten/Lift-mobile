@@ -1,6 +1,6 @@
 import { View, Text,TouchableOpacity } from 'react-native'
 import React from 'react'
-import { AppContext,AppProvider } from '../Context'
+import { AppContext,AppProvider } from '../../provider/Context'
 import { useContext } from 'react'
 
 interface propItem{

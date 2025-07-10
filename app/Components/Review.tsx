@@ -1,6 +1,6 @@
 import { View, Text,Image } from 'react-native'
 import React,{useContext} from 'react'
-import { AppContext } from '../Context'
+import { AppContext } from '../../provider/Context'
 
 interface ReviewProps {
     comments: string[];

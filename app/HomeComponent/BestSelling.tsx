@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, FlatList } from 'react-native'
 import React, { useContext, useState } from 'react'
 import BestSellingCard from './BestSellingCard'
-import {AppContext,AppProvider} from '../Context'
+import {AppContext,AppProvider} from '../../provider/Context'
 
 const BestSelling = () => {
   const context = useContext(AppContext);

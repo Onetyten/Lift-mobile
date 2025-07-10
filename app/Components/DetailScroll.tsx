@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity,ScrollView } from 'react-native'
 import React ,{useContext} from 'react'
-import {AppContext,AppProvider} from '../Context'
+import {AppContext,AppProvider} from '../../provider/Context'
 
 const DetailScroll = () => {
   const context = useContext(AppContext);

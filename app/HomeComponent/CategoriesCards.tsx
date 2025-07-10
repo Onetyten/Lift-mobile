@@ -1,7 +1,7 @@
 import { View, Text, ImageBackground, TouchableOpacity ,ImageSourcePropType} from 'react-native';
 import React, { useContext } from 'react';
 import { useRouter } from 'expo-router';
-import { AppContext } from '../Context'; // Import ImageSourcePropType
+import { AppContext } from '../../provider/Context'; // Import ImageSourcePropType
 
 interface CategoriesCardsProps {
   name: string;

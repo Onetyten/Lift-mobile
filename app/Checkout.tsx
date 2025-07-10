@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView, ScrollView,TextInput, Image, TouchableOpacity } from 'react-native';
 import React, { useContext } from 'react';
-import { AppContext } from './Context';
+import { AppContext } from '../provider/Context';
 
 const Checkout = () => {
     const context = useContext(AppContext);

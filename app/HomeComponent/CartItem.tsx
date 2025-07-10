@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { router } from 'expo-router';
-import { AppContext, CarListing } from '../Context'; // Import CarListing
+import { AppContext, CarListing } from '../../provider/Context'; // Import CarListing
 
 interface CartItemProps {
   name: string;

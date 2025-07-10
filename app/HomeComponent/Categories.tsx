@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from 'react-native';
 import React, { useContext } from 'react';
 import CategoriesCards from './CategoriesCards'; // Assuming CategoriesCards is a .tsx or .jsx file
-import { AppContext, CarCategories } from '../Context'; // Import CarCategories
+import { AppContext, CarCategories } from '../../provider/Context'; // Import CarCategories
 
 const Categories = () => {
   const context = useContext(AppContext);

@@ -1,6 +1,6 @@
 import { View, Text, ScrollView,Image, TouchableOpacity } from 'react-native'
 import React ,{useContext} from 'react'
-import {AppContext,AppProvider} from '../Context'
+import {AppContext,AppProvider} from '../../provider/Context'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
 import { faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight'

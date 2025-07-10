@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView,ScrollView, TouchableOpacity } from 'react-native'
 import React, { useContext, } from 'react'
-import {AppContext,CarListing} from '../Context'
+import {AppContext,CarListing} from '../../provider/Context'
 import CartItem from '../HomeComponent/CartItem'
 
 interface BookmarkItem{

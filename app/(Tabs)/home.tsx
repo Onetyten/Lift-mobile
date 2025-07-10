@@ -9,7 +9,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons/faBell'
 import { faLocationPin } from '@fortawesome/free-solid-svg-icons/faLocationPin'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight'
 import { faSun } from '@fortawesome/free-solid-svg-icons'
-import { AppContext,AppProvider } from '../Context'
+import { AppContext,AppProvider } from '../../provider/Context'
 import { useContext } from "react";
 
 

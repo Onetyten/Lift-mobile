@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons/faArrowLeft'
 import { faCartShopping} from '@fortawesome/free-solid-svg-icons/faCartShopping'
 import { router } from 'expo-router';
-import { AppContext,CarListing } from '../Context';
+import { AppContext,CarListing } from '../../provider/Context';
 
 interface propItems{
     carListings:Array<object>
