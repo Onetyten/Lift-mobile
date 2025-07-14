@@ -1,18 +1,22 @@
-import { View, Text,Image,ImageSourcePropType } from 'react-native'
-import React from 'react'
+import { View, Text,Image,ImageSourcePropType,StyleSheet } from 'react-native'
+import React, { ReactNode } from 'react'
 import { Tabs,Redirect } from 'expo-router'
-import HomeIcon from './icons/home.png'
-import ProfileIcon from './icons/profile.png'
-import BookmarkIcon from './icons/Cart.png'
-import CreateIcon from './icons/plus.png'
-
+import Octicons from '@expo/vector-icons/Octicons';
+import Fontisto from '@expo/vector-icons/Fontisto';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import { useSelector } from 'react-redux';
 
 interface TabIconProps {
-  icon: ImageSourcePropType
+  icon: ReactNode
   color: string
   name: string
   focused: boolean
 }
+
+// const style = StyleSheet.create({
+//   container:
+// })
 
 
 
@@ -20,13 +24,14 @@ interface TabIconProps {
 const TabIcon:React.FC<TabIconProps> = ({icon,color,name,focused}) => {
   return (
     <View className='items-center justify-center gap-2'>
-      <Image source={icon} resizeMode='contain' tintColor={color}  className='w-6 h-6'/>
+      {icon}
     </View>
   )
 }
 
 
 const TabLayout = () => {
+ const darkMode = useSelector((state)=>(state as any).darkmode.darkmode)
   return (
     <>
       <Tabs screenOptions={{
@@ -35,9 +40,12 @@ const TabLayout = () => {
         tabBarActiveTintColor:'#FFF',
         tabBarInactiveTintColor:'#373637',
         tabBarStyle:{
-          backgroundColor:'#0f172a',
-          height:50,
+          backgroundColor:'#0F0E17',
+          height:60,
+          borderTopWidth:0
+          
         }
+
         }} >
 
 
@@ -46,7 +54,7 @@ const TabLayout = () => {
         title:'Home',
          tabBarIcon:({color,focused})=>(
           <TabIcon 
-            icon={HomeIcon}
+            icon={<Octicons name="home" size={24} color={color} />}
             color={color}
             name="Home"
             focused={focused}
@@ -59,7 +67,7 @@ const TabLayout = () => {
           title:'Bookmark',
           tabBarIcon:({color,focused})=>(
             <TabIcon 
-              icon={BookmarkIcon}
+              icon={<Fontisto name="favorite" size={24} color={color} />}
               color={color}
               name="Bookmark"
               focused={focused}
@@ -70,7 +78,7 @@ const TabLayout = () => {
           title:'Create',
           tabBarIcon:({color,focused})=>(
             <TabIcon 
-              icon={CreateIcon}
+              icon={<Ionicons name="create-outline" size={24} color={color} />}
               color={color}
               name="Create"
               focused={focused}
@@ -81,7 +89,7 @@ const TabLayout = () => {
           title:'Profile',
           tabBarIcon:({color,focused})=>(
             <TabIcon 
-              icon={ProfileIcon}
+              icon={<AntDesign name="user" size={24} color={color} />}
               color={color}
               name="Profile"
               focused={focused}

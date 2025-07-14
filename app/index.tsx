@@ -5,26 +5,21 @@ import Button from './Components/Button'
 import { AppContext,AppProvider } from '../provider/Context'
 import { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
-
-
-
-
- 
+import { RootState } from "@/redux/store";
 
 
 export default function Index() {
+  const tokenRedux = useSelector((state:RootState)=>(state as any).userData?.token) 
   const darkMode = useSelector((state)=>(state as any).darkmode.darkmode)
   const context = useContext(AppContext);
   if (!context) return null;
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(()=>{
-    const checkAuthentication = async()=>{
-      const token = await AsyncStorage.getItem('token')
-      if (token){
+    const checkAuthentication =()=>{
+      if (tokenRedux){
         setIsAuthenticated(true)
-        console.log("user is already logged in.")
+        console.log("user is already logged in.",tokenRedux)
       }
       else{
         console.log('no token found redirect to login')
@@ -48,7 +43,7 @@ export default function Index() {
             <ImageBackground source={ darkMode? require('../assets/images/Homepage car.png') : require('../assets/images/Homepage car opacity.png')} resizeMode="contain" className="w-full h-[50%] justify-center items-center" >
               <View className="top-10 w-[50%]">
                 <Button title ='Continue' handlepress = {()=>{ 
-                  isAuthenticated?router.push('/(Tabs)/home'): router.push('/(Signup)/signup')
+                  isAuthenticated?router.push('/home'): router.push('/signup')
                   }}/> 
               </View> 
             </ImageBackground>

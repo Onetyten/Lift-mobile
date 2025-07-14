@@ -52,6 +52,7 @@ web-build/
 expo-env.d.ts
 
 # Native
+
 *.orig.*
 *.jks
 *.p8

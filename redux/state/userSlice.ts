@@ -14,44 +14,23 @@ export interface userType {
   updatedAt: string;
 }
 
-interface refreshTokenType{
-    _id: string | null,
-    createdAt: string | null,
-    expiresAt: string | null,
-    token: string | null,
-}
-
 interface userState {
-    user?:userType | null,
-    token?:string |null,
-    refreshToken?:refreshTokenType | null
+    user:userType | null,
 }
 
 const initialState:userState = {
     user:null,
-    token:null,
-    refreshToken:null
 }
 
 const userReducer = createSlice({
-    name:"userData",
+    name:"user",
     initialState,
     reducers:{
-        setUser:(state,action:PayloadAction<userState>)=>{
-            if (action.payload?.user !== undefined){
-                state.user = action.payload?.user
-            }
-            if (action.payload?.token !== undefined){
-                state.token = action.payload?.token
-            }
-            if (action.payload?.refreshToken !== undefined){
-                state.refreshToken = action.payload?.refreshToken
-            }
+        setUser:(state, action: PayloadAction<userType>) => {
+            state.user = action.payload;
         },
         clearUser:(state)=>{
             state.user = null
-            state.token = null
-            state.refreshToken = null
         }
     }
 })
