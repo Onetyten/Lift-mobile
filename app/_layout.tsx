@@ -54,7 +54,6 @@ function AppContent() {
       <Stack>
         <Stack.Screen name="index" options={{headerShown:false}} />
         <Stack.Screen name="(Tabs)" options={{headerShown:false}} />
-        <Stack.Screen name="(Pages)" options={{headerShown:false}} />
         <Stack.Screen name="carDetails" options={{headerShown:false}} />
         <Stack.Screen name="categoryTab" options={{headerShown:false}} />
         <Stack.Screen name="rentalRules" options={{headerShown:false}} />

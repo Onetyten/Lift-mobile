@@ -5,7 +5,6 @@ import Button from './Components/Button'
 import { AppContext,AppProvider } from '../provider/Context'
 import { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
 
 
 
@@ -15,11 +14,10 @@ import { RootState } from "@/redux/store";
 
 
 export default function Index() {
-  const darkMode = useSelector((state:RootState)=>state.darkmode.darkmode)
+  const darkMode = useSelector((state)=>(state as any).darkmode.darkmode)
   const context = useContext(AppContext);
   if (!context) return null;
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  console.log(darkMode)
 
   useEffect(()=>{
     const checkAuthentication = async()=>{
@@ -32,18 +30,10 @@ export default function Index() {
         console.log('no token found redirect to login')
       }
     }
-    const clearUserData = async () => {
-      try {
-        await AsyncStorage.clear(); // Clears all data in AsyncStorage
-        console.log('AsyncStorage has been cleared.');
-      } catch (error) {
-        console.log('Error clearing AsyncStorage:', error);
-      }
-    };
-    // clearUserData()
     checkAuthentication()
 
-  },[])
+  },[]
+)
 
 
   return (

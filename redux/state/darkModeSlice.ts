@@ -12,12 +12,15 @@ const darkModeReducer = createSlice({
     reducers:{
         setDarkMode:(state)=>{
             state.darkmode = true
+            return state
         },
         setLightMode:(state)=>{
             state.darkmode = false
+            return state
         },
         toggleDarkMode: (state) => {
             state.darkmode = !state.darkmode;
+            return state
         }
     }
 })

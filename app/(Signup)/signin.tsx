@@ -1,57 +1,71 @@
-import { View, Text, SafeAreaView, ScrollView,Alert ,Image} from 'react-native'
-import React, { useContext,useState } from 'react'
-import { StatusBar } from 'expo-status-bar'
+import { View, Text, SafeAreaView, ScrollView,Alert ,Image,ActivityIndicator} from 'react-native'
+import React, { useState } from 'react'
 import FormField from '../Components/FormField'
 import Button  from '../Components/Button'
-import { Link,Redirect,router } from 'expo-router'
-import { AppContext,AppProvider } from '../../provider/Context'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { Link,router } from 'expo-router'
 import Fontisto from '@expo/vector-icons/Fontisto';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { useDispatch, useSelector } from 'react-redux'
+import { setUser,clearUser } from '@/redux/state/userSlice'
+import axios from 'axios'
+import Constants from 'expo-constants'
+const extra = (Constants.expoConfig?.extra || {}) as {
+  API_URL?: string;
+};
+const API_URL = extra?.API_URL
+
 
 
 
 
 
 const Signin = () => {
-  const {form,setForm,isLoggedIn,setIsLoggedIn,darkMode} = useContext(AppContext)
+  const dispatch = useDispatch()
+  const darkMode = useSelector((state)=>(state as any).darkmode.darkmode)
   const [isSubmitting,setIsSubmitting] = useState(false)
+  const [form,setForm] = useState({
+    email:'',
+    password:''
+  })
+
+
+  
   const submit =async  ()=>{
-    // console.log("pressed")
-    if (!form.email || !form.password){
-          console.log("not here")
-          Alert.alert("Invalid Information","Please fill in the required fields")
-        }
+    if (isSubmitting) return;
+    setIsSubmitting(true)
 
-    else{
-      try {
-        const response = await fetch("http://192.168.43.241:1001/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email:form.email, password:form.password }),
-      })
-      const data = await response.json()
-      if (data.status === "ok") {
-        await AsyncStorage.setItem("token", data.token)
-        console.log("Login successful", data);
-        router.replace('/(Tabs)/home')
-
-    } else {
-        console.log("Login failed", data.data);
-        Alert.alert("Login Failed", data.data);
+    if (!form.email || !form.password ||  form.email.trim().length==0 || form.password.trim().length==0){
+      Alert.alert("Invalid Information","Please fill in the required fields")
+      return setIsSubmitting(false);
+    }
+    try 
+    {
+      const response = await axios.post(`${API_URL}/auth/login`,{email:form.email.toLowerCase(),password:form.password})
+      if (response.status != 200) return
+      const data = await response.data
+      dispatch(setUser(data.data))
+      router.push('/home')
+      Alert.alert("Welcome",`${data.message}`)
     }
 
-      } catch (error: unknown) {
-         if (error instanceof Error){
-          Alert.alert("Error",error.message)
-         }
-         else{
-          Alert.alert("Error","Error unknown Reload the app")
-         }
-         
+    catch (error:unknown) {
+      if (axios.isAxiosError(error)){
+        Alert.alert (error.response?.data.message || "Unknown error")
       }
+      else{
+         Alert.alert ("Unknown error")
+      }
+      dispatch(clearUser())
+      
     }
+    
+    finally
+    {
+        setIsSubmitting(false)
+    }
+
+
+    
   }
 
 
@@ -60,6 +74,13 @@ const Signin = () => {
 
         <SafeAreaView className={`${darkMode?'bg-midnightBlue':'bg-stone-100'} h-full w-full`}>
         <ScrollView>
+
+
+          {isSubmitting && <View className='w-full h-screen absolute justify-center items-center bg-midnightBlue/60 z-20'>
+            <ActivityIndicator size='large' color="#BFFB4E" />
+          </View>}
+
+
           <View className='w-full h-screen justify-between px-6 gap-6'>
 
                 <View className='gap-6'>
@@ -73,8 +94,8 @@ const Signin = () => {
                   </Text>
 
                   <View className='gap-1'>
-                    <FormField placeholdertext= 'E-mail' icon={<Fontisto name="email" size={24} color="#374151" />} value ={form.email} keyboardType = 'email-address' handlechangetext={(e:string)=>setForm({...form, email:e})}/>
-                    <FormField placeholdertext= 'Password' icon={<AntDesign name="lock" size={24} color="#374151" />} value ={form.password} keyboardType = 'default' handlechangetext={(e:string)=>setForm({...form, password:e})} />
+                    <FormField placeholdertext= 'E-mail' icon={<Fontisto name="email" size={24} color="#374151" />} value ={form.email} keyboardType = 'email-address' handlechangetext={(e:string)=>setForm({...form, email:e})} title={null}/>
+                    <FormField placeholdertext= 'Password' icon={<AntDesign name="lock" size={24} color="#374151" />} value ={form.password} keyboardType = 'default' handlechangetext={(e:string)=>setForm({...form, password:e})} title={null} />
 
                     </View>
                     

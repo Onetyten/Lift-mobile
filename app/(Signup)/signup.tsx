@@ -1,89 +1,93 @@
-import { View, Text, SafeAreaView, ScrollView, Alert,Image } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, Alert,Image, ActivityIndicator } from 'react-native'
 import React,{useContext, useState} from 'react'
 import { StatusBar } from 'expo-status-bar'
 import FormField from '../Components/FormField'
 import Button  from '../Components/Button'
-import { Link, router,Redirect } from 'expo-router'
-import { AppContext,AppProvider } from '../../provider/Context'
+import { Link, router} from 'expo-router'
 import axios from 'axios'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { useSelector } from 'react-redux'
+import { RootState } from '@/redux/store'
+import Constants from 'expo-constants'
+const extra = (Constants.expoConfig?.extra || {}) as {
+  API_URL?: string;
+};
+const API_URL = extra?.API_URL
 
 
 const Signup = () => {
-  const {form,setForm,isLoggedIn,setIsLoggedIn,darkMode} = useContext(AppContext)
+  const darkMode = useSelector((state)=>(state as any).darkmode.darkmode)
   const [isSubmitting,setIsSubmitting] = useState(false)
-  const [confirmPass, setConfirmPass] = useState('')
+  const [form,setForm] = useState({
+    name:'',
+    email:'',
+    password:'',
+    confirmPassword:''
+  })
+
+
+
   const submit= async()=>{
     if (isSubmitting) return;
     setIsSubmitting(true)
 
-    if (!form.userName || !form.email || !form.password){
+    if (!form.name || !form.email || !form.password || form.name.trim().length==0 ||  form.email.trim().length==0 || form.password.trim().length==0){
       Alert.alert("Invalid Information","Please fill in the required fields")
-      setIsSubmitting(false);
-      return
+      return setIsSubmitting(false);
     }
     
-    else if (confirmPass != form.password){
-      Alert.alert("Comfirm your password","Please fill in your registered password in the confirm password field")
-      setIsSubmitting(false);
-      return
-
+    else if (form.confirmPassword!= form.password){
+      Alert.alert("Comfirm your password","Passwords do not correlate")
+      return setIsSubmitting(false);
     }
 
     else if (form.password.length<8){
       Alert.alert("Password too short","The characters in your password must be more than 8 ")
-      setIsSubmitting(false);
-      return
+      return setIsSubmitting(false); 
     }
     
 
+    try {
+      const response = await axios.post(`${API_URL}/auth/register`,{name:form.name,email:form.email.toLowerCase(),password:form.password})
+      console.log(response.data)
+      if (response.status == 201){
+        Alert.alert("Account created successful","Redirecting to signin")
+        router.replace('/signin')
+      }
+      else{
+        Alert.alert(response.data.message)
+      }
+      
 
-    else{
-        const userData = {
-          name:form.userName,
-          email:form.email,
-          password:form.password
-        }
-        try {
-          const response = await axios.post("http://192.168.43.241:1001/register",userData)
-          console.log(response.data)
-          if (response.data.status == 'ok'){
-            await AsyncStorage.setItem('userData', JSON.stringify(userData));
-            Alert.alert("Registered Successfully", `Welcome ${form.userName}`)
-            router.replace('/(Tabs)/home')
-          }
-          else{
-            Alert.alert(JSON.stringify(response.data))
-          }
-          
-
-        } catch (error:unknown) {
-          if (error instanceof Error){
-            console.log(error);
-    	      Alert.alert("Error", error.message);
-          }
-          else{
-            console.log(error);
-    	      Alert.alert("Error", "Error unknown Reload the app");
-          }
-          
-        }
-        finally{
-          setIsSubmitting(false)
-        }
-
+    } 
+    catch (error:unknown) {
+      if (axios.isAxiosError(error)){
+        Alert.alert ("Error signing up",error.response?.data.message || "Unknown error")
+      }
+      else{
+         Alert.alert ("Error signing up","Unknown error")
+      }
+      
     }
-    a
-    
+    finally{
+      setIsSubmitting(false)
+    }
+
   }
 
 
   return (
     <SafeAreaView className={`${darkMode?'bg-midnightBlue':'bg-stone-100'} h-full w-full`}>
-      <ScrollView>
+      <ScrollView className='relative'>
+
+
+        {isSubmitting && (<View className='w-full h-screen absolute justify-center items-center bg-midnightBlue/60 z-20'>
+          <ActivityIndicator size='large' color="#BFFB4E" />
+        </View>)}
+
+
         <View className='w-full h-screen justify-between px-6 gap-6'>
 
               <View className='gap-6'>
@@ -97,17 +101,16 @@ const Signup = () => {
                 </Text>
 
                 <View className='gap-1'>
-                  <FormField placeholdertext= 'Name' icon={<FontAwesome5 name="user-circle" size={24} color="#374151" />}  value ={form.userName} keyboardType = 'default' handlechangetext={(e:string)=>setForm({...form, userName:e})}/>
+                  <FormField placeholdertext= 'Name' icon={<FontAwesome5 name="user-circle" size={24} color="#374151" />}  value ={form.name} keyboardType = 'default' handlechangetext={(e:string)=>setForm({...form, name:e})} title={null}/>
 
-                  <FormField placeholdertext= 'E-mail' icon={<Fontisto name="email" size={24} color="#374151" />} value ={form.email} keyboardType = 'email-address' handlechangetext={(e:string)=>setForm({...form, email:e})}/>
+                  <FormField placeholdertext= 'E-mail' icon={<Fontisto name="email" size={24} color="#374151" />} value ={form.email} keyboardType = 'email-address' handlechangetext={(e:string)=>setForm({...form, email:e})} title={null}/>
 
-                  <FormField placeholdertext= 'Password' icon={<AntDesign name="lock" size={24} color="#374151" />} value ={form.password} keyboardType = 'default' handlechangetext={(e:string)=>setForm({...form, password:e})}/>
+                  <FormField placeholdertext= 'Password' icon={<AntDesign name="lock" size={24} color="#374151" />} value ={form.password} keyboardType = 'default' handlechangetext={(e:string)=>setForm({...form, password:e})} title={null}/>
 
-                  <FormField placeholdertext= 'Confirm Password' icon={<AntDesign name="lock" size={24} color="#374151" />} value ={confirmPass} keyboardType = 'default' handlechangetext={(e:string)=>{
-                    setConfirmPass(e)
-                    }}/>
-
-                  </View>
+                  <FormField placeholdertext= 'Confirm Password' icon={<AntDesign name="lock" size={24} color="#374151" />} value ={form.confirmPassword} keyboardType = 'default' handlechangetext={(e:string)=>{
+                    setForm({...form,confirmPassword:e})
+                    }} title={null}/>
+                </View>
                   
             </View>
 
