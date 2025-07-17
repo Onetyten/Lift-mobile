@@ -9,17 +9,15 @@ import { RootState } from "@/redux/store";
 
 
 export default function Index() {
-  const tokenRedux = useSelector((state:RootState)=>(state as any).userData?.token) 
+  const userRedux = useSelector((state:RootState)=>state.user)
   const darkMode = useSelector((state)=>(state as any).darkmode.darkmode)
-  const context = useContext(AppContext);
-  if (!context) return null;
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(()=>{
     const checkAuthentication =()=>{
-      if (tokenRedux){
+      if (userRedux.token){
         setIsAuthenticated(true)
-        console.log("user is already logged in.",tokenRedux)
+        console.log("user is already logged in.")
       }
       else{
         console.log('no token found redirect to login')

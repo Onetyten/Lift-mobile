@@ -6,39 +6,33 @@ import { AppContext } from '../../provider/Context'; // Import ImageSourcePropTy
 interface CategoriesCardsProps {
   name: string;
   path: ImageSourcePropType;
+  darkMode:boolean
 }
 
-const CategoriesCards: React.FC<CategoriesCardsProps> = (props) => {
+const CategoriesCards = (props:CategoriesCardsProps) => {
   const context = useContext(AppContext);
   if (!context) return null;
 
-  const { setCurrentCategory, darkMode } = context;
-  const { name, path } = props;
+  const { setCurrentCategory} = context;
+  const { name, path,darkMode} = props;
   const router = useRouter();
 
   return (
-    <TouchableOpacity
-      onPress={() => {
-        setCurrentCategory(name);
-        router.push('/categoryTab');
-      }}
-    >
-      <View className='w-40 mr-6 rounded-2xl object-contain h-52 overflow-hidden'>
-        <ImageBackground
-          source={path}
-          className='w-full h-40 justify-center items-center bg-blend-multiply'
-          style={{ backgroundBlendMode: 'multiply' }}
-        >
+    <TouchableOpacity onPress={() => { setCurrentCategory(name); router.push('/categoryTab');}} className='gap-4 mb-6'>
+
+      <View className='w-40 mr-6 object-contain h-40 rounded-lg overflow-hidden relative'>
+        <ImageBackground source={path} className='w-full h-40 justify-center items-center bg-blend-multiply' style={{ backgroundBlendMode: 'multiply' }}>
           <View className='w-full h-full opacity-25 absolute'></View>
         </ImageBackground>
-        <Text
-          className={`w-full text-center text-md font-Ubunturegular ${
-            darkMode ? 'text-white' : 'text-slate-900'
-          }`}
-        >
-          {name}
-        </Text>
+        <View className='absolute bg-midnightBlue/10 w-full h-full'>
+
+        </View>
       </View>
+
+      <Text className={`w-full text-center text-xl font-Inter-regular ${ darkMode?'text-white':'text-midnightBlue'}`} >
+          {name}
+      </Text>
+
     </TouchableOpacity>
   );
 };

@@ -11,6 +11,8 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import Constants from 'expo-constants'
+
+
 const extra = (Constants.expoConfig?.extra || {}) as {
   API_URL?: string;
 };
@@ -18,7 +20,7 @@ const API_URL = extra?.API_URL
 
 
 const Signup = () => {
-  const darkMode = useSelector((state)=>(state as any).darkmode.darkmode)
+  const darkMode = useSelector((state:RootState)=>(state).darkmode.darkmode)
   const [isSubmitting,setIsSubmitting] = useState(false)
   const [form,setForm] = useState({
     name:'',

@@ -30,6 +30,7 @@ function useSystemDarkModeListener(){
 }
 
 function AppContent() {
+  
   useSystemDarkModeListener();
 
   const [fontsLoaded, error] = useFonts({
@@ -50,7 +51,7 @@ function AppContent() {
   if (!fontsLoaded && !error) return null;
 
   return (
-    <PersistGate loading={<ActivityIndicator size="large" color="#BFFB4E"/>} persistor={persistor}>
+   
       <Stack>
         <Stack.Screen name="index" options={{headerShown:false}} />
         <Stack.Screen name="(Tabs)" options={{headerShown:false}} />
@@ -60,7 +61,7 @@ function AppContent() {
         <Stack.Screen name="Checkout" options={{headerShown:false}} />
         <Stack.Screen name="(Signup)" options={{headerShown:false}} />
       </Stack>
-    </PersistGate>
+    
   );
 }
 
@@ -68,9 +69,11 @@ function AppContent() {
 export default function RootLayout() {
   return(
     <Provider store={store}>
-      <AppProvider>
-            <AppContent />
-      </AppProvider>
+       <PersistGate loading={<ActivityIndicator size="large" color="#BFFB4E"/>} persistor={persistor}>
+          <AppProvider>
+                <AppContent />
+          </AppProvider>
+      </PersistGate>
     </Provider>
   );
 }

@@ -9,8 +9,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setUser,clearUser } from '@/redux/state/userSlice'
 import axios from 'axios'
 import Constants from 'expo-constants'
-import { setToken } from '@/redux/state/tokenSlice'
-import { setRefreshToken } from '@/redux/state/refreshTokenSlice'
 import { RootState } from '@/redux/store'
 const extra = (Constants.expoConfig?.extra || {}) as {
   API_URL?: string;
@@ -25,23 +23,13 @@ const API_URL = extra?.API_URL
 const Signin = () => {
   const dispatch = useDispatch()
   const darkMode = useSelector((state:RootState)=>state.darkmode.darkmode)
-  const userRedux = useSelector((state:RootState)=>state.user.user)
-  const token = useSelector((state:RootState)=>state.token.token)
-  const refreshToken = useSelector((state:RootState)=>state.refreshToken.refreshToken)
+  const userRedux = useSelector((state:RootState)=>state.user)
   const [isSubmitting,setIsSubmitting] = useState(false)
   const [form,setForm] = useState({
     email:'',
     password:''
   })
 
-
-  
-  useEffect(() => {
-    // console.log("Redux User Updated:", userRedux);
-    console.log("refresh token updated:", refreshToken);
-  }, []);
-
-  
   const submit =async  ()=>{
     if (isSubmitting) return;
     setIsSubmitting(true)
@@ -55,17 +43,7 @@ const Signin = () => {
       const response = await axios.post(`${API_URL}/auth/login`,{email:form.email.toLowerCase(),password:form.password})
       if (response.status != 200) return
       const data = await response.data
-      const savedData = {
-        user:data.data.user,
-        token:data.data.token,
-        refreshToken: data.data.refreshToken
-      }
-
-      dispatch (setToken(savedData.token))
-      dispatch(setUser(savedData.user))
-      dispatch(setRefreshToken(savedData.refreshToken))
-
-
+      dispatch(setUser(data.data))
       // router.push('/home')
       Alert.alert("Welcome",`${data.message}`)
     }
